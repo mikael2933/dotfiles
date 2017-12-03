@@ -154,11 +154,10 @@ bar {
     status_command i3blocks
 
     colors {
-    	background #2E343E
+    	background #222D32
 	
-	
-        focused_workspace #2E343E #2E343E #6BA4E7
-	inactive_workspace #2E343E #2E343E #B8C8B6
+        focused_workspace #222D32 #222D32 #6BA4E7
+	inactive_workspace #222D32 #222D32 #B8C8B6
     }
 }
 
@@ -182,10 +181,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/
 
 #ClipIt
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 
 #Redshift
 exec --no-startup-id redshift-gtk -l 55.641910:12.087845
+
+#Compton
+exec --no-startup-id compton -i 0.8 --backend glx --vsync opengl-swc --no-fading-openclose 
 
 #SSH-Agent
 exec --no-startup-id eval "$(ssh-agent -s)"
@@ -198,29 +200,32 @@ exec --no-startup-id eval "$(ssh-agent -s)"
 bindsym $mod+shift+x exec i3lock
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && pkill -RTMIN+10 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && pkill -RTMIN+10 i3blocks #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && pkill -RTMIN+10 i3blocks # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay --no-startup-id exec playerctl play
-bindsym XF86AudioPause --no-startup-id exec playerctl pause
-bindsym XF86AudioNext --no-startup-id exec playerctl next
-bindsym XF86AudioPrev --no-startup-id exec playerctl previous
+#bindsym XF86AudioPlay --no-startup-id exec playerctl play
+#bindsym XF86AudioPause --no-startup-id exec playerctl pause
+#bindsym XF86AudioNext --no-startup-id exec playerctl next
+#bindsym XF86AudioPrev --no-startup-id exec playerctl previous
 
 #Rofi
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+shift+d exec --no-startup-id gksudo -- rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+shift+d exec --no-startup-id gksudo -- rofi -show drun
 
 #Miam + Slop
-bindsym XF86Search exec maim -s --format png ~/Pictures/Maim\ Screenshots/$(date +%F-%T).png
+bindsym XF86Search exec maim -s --format png ~/Pictures/Screenshots/Miam/$(date +%F-%T).png
+
+#Gnome-screenshot
+bindsym print exec gnome-screenshot
 
 ########
 # i3 GAPS
