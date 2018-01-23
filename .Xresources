@@ -31,3 +31,6 @@ URxvt*foreground:    white
 
 urxvt*transparent: true
 urxvt*shading: 15
+
+!Cursor
+Xcursor.theme:	Breeze

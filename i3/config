@@ -89,6 +89,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+# Next/prev workspace
+#bindsym $mod+Left workspace prev
+#bindsym $mod+Right workspace next
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -150,7 +154,7 @@ bindsym $mod+r mode "resize"
 #}
 bar {
     position top
-    font xft: monospace, FontAwesome 9
+    font pango: monospace, ionicons 9
     status_command i3blocks
 
     colors {
@@ -197,16 +201,17 @@ exec --no-startup-id eval "$(ssh-agent -s)"
 ####################
 
 #Lockscreen
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec --no-startup-id i3lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -222,10 +227,10 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+shift+d exec --no-startup-id gksudo -- rofi -show drun
 
 #Miam + Slop
-bindsym XF86Search exec maim -s --format png ~/Pictures/Screenshots/Miam/$(date +%F-%T).png
+bindsym XF86Search exec --no-startup-id  maim -s --format png ~/Pictures/Screenshots/Miam/$(date +%F-%T).png
 
 #Gnome-screenshot
-bindsym print exec gnome-screenshot
+bindsym Print exec --no-startup-id gnome-screenshot
 
 ########
 # i3 GAPS
