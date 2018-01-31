@@ -1,0 +1,31 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Jan 31 11:20:01 2018
+;; Desktop file format version 208
+;; Emacs version 25.3.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23153 38993 275902 836000) (desktop . "208") "multimikael@arch_laptop" nil nil ((((font-backend xft x) (font . "-GOOG-Noto Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (font-parameter . "Noto Mono 11") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "WhiteSmoke") (background-color . "black") (mouse-color . "OrangeRed") (border-color . "gold") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground . "WhiteSmoke") (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "orchid") (environment) (frameset--id . "E589-61AF-C863-3EFE") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (visibility . t) (display . ":0") (explicit-name) (height . 36) (width . 148) (left . 0) (top . 27)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 72) (min-pixel-width . 90) (min-pixel-height-ignore . 54) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 18) (min-pixel-width-safe . 18)) leaf (pixel-width . 1366) (pixel-height . 636) (total-width . 151) (total-height . 35) (normal-height . 1.0) (normal-width . 1.0) (buffer "config.org" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 2 t nil 0 t) (vscroll . 0) (dedicated) (point . 3494) (start . 1854))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/config.org"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/multimikael/.emacs.d/config.org"
+  "config.org"
+  'org-mode
+  '(yas-minor-mode)
+  3494
+  '(3494 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t))
+  '((mark-ring (3377 1329 1329 179 973 1329 3546 1151 1329 1149 1174 1273 3546 3254 3376 3455))))
+

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sage
+# key: sage_
+# --
+#+BEGIN_SRC sage :exports both ${1:results: file}
+$2
+#+END_SRC

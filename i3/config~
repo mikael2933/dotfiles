@@ -152,18 +152,19 @@ bindsym $mod+r mode "resize"
 #    position top
 #    STATUS_COMMAND I3STATUS
 #}
-bar {
-    position top
-    font xft: monospace, FontAwesome 9
-    status_command i3blocks
-
-    colors {
-    	background #222D32
-	
-        focused_workspace #222D32 #222D32 #6BA4E7
-	inactive_workspace #222D32 #222D32 #B8C8B6
-    }
-}
+#bar {
+#    position top
+#    font pango: monospace, Ionicons 9
+#    status_command i3blocks
+#
+#    colors {
+#    	background #222D32
+#	
+#        focused_workspace #222D32 #222D32 #6BA4E7
+#	inactive_workspace #222D32 #222D32 #B8C8B6
+#    }
+#}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ##############
 # STARTUP APPS
@@ -204,14 +205,14 @@ exec --no-startup-id eval "$(ssh-agent -s)"
 bindsym $mod+shift+x exec --no-startup-id i3lock
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% && pkill -RTMIN+10 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% && pkill -RTMIN+10 i3blocks #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightness
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
