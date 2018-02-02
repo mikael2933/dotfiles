@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Disable access control
+xhost +SI:localuser:$USER
+
+# Fallback cursor
+xsetroot -cursor_name left_ptr
+
+# Start Emacs
+exec dbus-launch --exit-with-session emacs --eval "(exwm-enable)"

@@ -7,6 +7,7 @@
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "dashboard")
 (depends-on "doom-themes")
+(depends-on "exwm")
 (depends-on "flyspell-correct-ivy")
 (depends-on "helm-sage")
 (depends-on "linum-relative")

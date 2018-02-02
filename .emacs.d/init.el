@@ -15,7 +15,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (rainbow-delimiters linum-relative beacon ranger dashboard magit auto-complete-sage helm-sage cdlatex ob-sagemath sage-shell-mode flyspell-correct-ivy yasnippet-snippets yasnippet pallet package-build shut-up epl git commander f dash s))))
+    (exwm rainbow-delimiters linum-relative beacon ranger dashboard magit auto-complete-sage helm-sage cdlatex ob-sagemath sage-shell-mode flyspell-correct-ivy yasnippet-snippets yasnippet pallet package-build shut-up epl git commander f dash s))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
