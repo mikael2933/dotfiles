@@ -12,10 +12,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (exwm rainbow-delimiters linum-relative beacon ranger dashboard magit auto-complete-sage helm-sage cdlatex ob-sagemath sage-shell-mode flyspell-correct-ivy yasnippet-snippets yasnippet pallet package-build shut-up epl git commander f dash s))))
+    (rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm doom-themes dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

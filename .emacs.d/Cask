@@ -17,6 +17,7 @@
 (depends-on "org-bullets")
 (depends-on "pallet")
 (depends-on "rainbow-delimiters")
+(depends-on "rainbow-mode")
 (depends-on "ranger")
 (depends-on "sage-shell-mode")
 (depends-on "yasnippet")

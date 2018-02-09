@@ -2,36 +2,50 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Mikael Zhang
 
-* Custom variables and faces
-
-#+BEGIN_SRC emacs-lisp
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; (add-p(linum-on)rojectsto-list 'dashboard-items '(agenda) t)If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(package-selected-packages
-   (quote
-    (pallet package-build shut-up epl git commander f dash s))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-#+END_SRC
-
 * Emacs internal configuration
 ** Indent
 #+BEGIN_SRC emacs-lisp
 (setq tab-width 4)
 #+END_SRC
 ** Unset Control Z
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs0a0 inherit0a0https://www.gnu.org/software/emacs/manual/html_node/elisp/Derived-Modes.htmla04a0a0a0404-l(d(defface org-block-begin-line
+  '((t (:underlinEAEAFFe "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the begin of source blocks.")
+
+(defface org-block-background
+  '((t (:background "#FFFFEA")))
+  "Face used for the source block background.")
+(defface org-block-begin-line
+  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the begin of source blocks.")
+
+(defface org-block-background
+  '((t (:background "#FFFFEA")))
+  "Face used for the source block background.")
+ef(defface org-block-begin-line
+  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the begin of source blocks.")
+
+(defface org-block-background
+  '((t (:background "#FFFFEA")))
+  "Face used for the source block background.")
+face org-block-begin-line
+  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the begin of source blocks.")
+
+(defface org-block-background
+  '((t (:background "#FFFFEA")))
+  "Face used for the source block background.")
+isqu`(org-block-background ((,class (:background "#FFFFE0")))) ;; :inherit fixed-pitch))))
+   `(org-block-begin-line ((,class (:underline "#A7A6AA" :foreground "#555555" :background "#E2E1D5"))))
+   `(org-block-end-line ((,class (:overline "#A7A6AA" :foreground "#555555" :background "#E2E1D5"))))ery-replacep
 (global-unset-key (kbd "C-z"))
 #+END_SRC
 
+** Find and replace Control C, Control s
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c C-s") 'query-replace)
+#+END_SRC 
 * org-mode configuration
 ** Beamer org export
 
@@ -50,12 +64,22 @@ https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.
 #+BEGIN_SRC emacs-lisp
 ;;(desktop-save-mode 1)
 #+END_SRC
+** Syntax highlighting
+https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-fontify-natively t)
+#+END_SRC
 * org-bullets
 https://github.com/sabof/org-bullets
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+END_SRC
-* Themes
+* Themes 
+** Load ~/.emacs.d/themes
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+#+END_SRC
 ** doom-themes - NOT IN USE
 https://github.com/hlissner/emacs-doom-themes#install
 #+BEGIN_SRC emacs-lisp
@@ -67,10 +91,17 @@ https://github.com/hlissner/emacs-doom-themes#install
 #+BEGIN_SRC emacs-lisp
 ;;(load-theme 'sanityinc-tomorrow-bright t)
 #+END_SRC
-** (Built in) Manoj dark
+** (Built in) Manoj dark - NOT IN USE
 #+BEGIN_SRC emacs-lisp
-(load-theme 'manoj-dark t)
+;;(load-theme 'manoj-dark t)
 #+END_SRC
+** Custom Manoj dark
+Modified version of original manoj dark theme.
+#
+#+BEGIN_SRC emacs-lisp
+(load-theme 'custom-manoj-dark t)
+#+END_SRC
+
 * YASnippet
 https://github.com/joaotavora/yasnippet
 #+BEGIN_SRC emacs-lisp
@@ -86,19 +117,32 @@ https://github.com/joaotavora/yasnippet
 https://github.com/stakemori/ob-sagemath
 
 #+BEGIN_SRC emacs-lisp
-;; Ob-sagemath supports only evaluating with a session.
-(setq org-babel-default-header-args:sage '((:session . t)
-                                           (:results . "output")))
+  ;; Ob-sagemath supports only evaluating with a session.
+  (setq org-babel-default-header-args:sage '((:session . t)
+                                             (:results . "output")))
 
-;; C-c c for asynchronous evaluating (only for SageMath code blocks).
-(with-eval-after-load "org"
-  (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
+  ;; C-c c for asynchronous evaluating (only for SageMath code blocks).
+  (with-eval-after-load "org"
+    (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
 
-;; Do not confirm before evaluation
-(setq org-confirm-babel-evaluate nil)
+  ;; Do not confirm before evaluation
+  (setq org-confirm-babel-evaluate nil)
 
-;; Show images when opening a file.
-(setq org-startup-with-inline-images t)
+  ;; Show images when opening a file.
+  (setq org-startup-with-inline-images t)
+#+END_SRC
+
+** Sage-shell-mode derived
+
+#+BEGIN_SRC emacs-lisp
+
+#+END_SRC
+
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Derived-Modes.html
+
+#+BEGIN_SRC emacs-lisp
+  (define-derived-mode sage-mode sage-shell-mode "sage-block mode")
+  (provide 'sage-mode)
 #+END_SRC
 
 * auto-complete
@@ -151,10 +195,6 @@ https://github.com/ch11ng/exwm
 
 https://github.com/ch11ng/exwm/wiki/Configuration-Example
 #+BEGIN_SRC emacs-lisp
-;;;;;;;;;;;;;;;;;;;
-;; CONFIGURE EXWM
-;;;;;;;;;;;;;;;;;;;
-
 ;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -252,9 +292,9 @@ https://github.com/ch11ng/exwm/wiki/Configuration-Example
 ;; list of cons cells (SRC . DEST), where SRC is the key sequence you press and
 ;; DEST is what EXWM actually sends to application. Note that SRC must be a key
 ;; sequence (of type vector or string), while DEST can also be a single key.
- (exwm-input-set-simulation-keys
-  '(
-     ;; movement
+(exwm-input-set-simulation-keys
+ '(
+;; movement
 ;;     ([?\C-b] . left)
 ;;     ([?\M-b] . C-left)
 ;;     ([?\C-f] . right)
@@ -267,11 +307,11 @@ https://github.com/ch11ng/exwm/wiki/Configuration-Example
 ;;     ([?\C-v] . next)
 ;;     ([?\C-d] . delete)
 ;;     ([?\C-k] . (S-end delete))
-     ;; cut/paste.
+;; cut/paste.
      ([?\C-w] . ?\C-x)
      ([?\M-w] . ?\C-c)
-     ([?\C-y] . ?\C-v))
-     ;; search
+     ([?\C-y] . ?\C-v)))
+;; search
 ;;     ([?\C-s] . ?\C-f))
 ;; 
 ;; You can hide the mode-line of floating X windows by uncommenting the
