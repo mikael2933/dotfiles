@@ -3,42 +3,19 @@
 #+AUTHOR: Mikael Zhang
 
 * Emacs internal configuration
+** Load library path ~/.emacs.d/lib/
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lib/")
+#+END_SRC
+
 ** Indent
 #+BEGIN_SRC emacs-lisp
 (setq tab-width 4)
 #+END_SRC
+
 ** Unset Control Z
-#+BEGIN_SRC emacs0a0 inherit0a0https://www.gnu.org/software/emacs/manual/html_node/elisp/Derived-Modes.htmla04a0a0a0404-l(d(defface org-block-begin-line
-  '((t (:underlinEAEAFFe "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  "Face used for the line delimiting the begin of source blocks.")
 
-(defface org-block-background
-  '((t (:background "#FFFFEA")))
-  "Face used for the source block background.")
-(defface org-block-begin-line
-  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  "Face used for the line delimiting the begin of source blocks.")
-
-(defface org-block-background
-  '((t (:background "#FFFFEA")))
-  "Face used for the source block background.")
-ef(defface org-block-begin-line
-  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  "Face used for the line delimiting the begin of source blocks.")
-
-(defface org-block-background
-  '((t (:background "#FFFFEA")))
-  "Face used for the source block background.")
-face org-block-begin-line
-  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  "Face used for the line delimiting the begin of source blocks.")
-
-(defface org-block-background
-  '((t (:background "#FFFFEA")))
-  "Face used for the source block background.")
-isqu`(org-block-background ((,class (:background "#FFFFE0")))) ;; :inherit fixed-pitch))))
-   `(org-block-begin-line ((,class (:underline "#A7A6AA" :foreground "#555555" :background "#E2E1D5"))))
-   `(org-block-end-line ((,class (:overline "#A7A6AA" :foreground "#555555" :background "#E2E1D5"))))ery-replacep
+#+BEGIN_SRC emacs-lisp
 (global-unset-key (kbd "C-z"))
 #+END_SRC
 
@@ -46,6 +23,21 @@ isqu`(org-block-background ((,class (:background "#FFFFE0")))) ;; :inherit fixed
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-c C-s") 'query-replace)
 #+END_SRC 
+
+** Disable bars
+Disable menu-, tool- and scroll-bar for more space
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+#+END_SRC
+
+** Saving Emacs Sessions - NOT IN USE
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
+#+BEGIN_SRC emacs-lisp
+;;(desktop-save-mode 1)
+#+END_SRC
+
 * org-mode configuration
 ** Beamer org export
 
@@ -59,22 +51,19 @@ isqu`(org-block-background ((,class (:background "#FFFFE0")))) ;; :inherit fixed
 (setq org-support-shift-select t)
 #+END_SRC
 
-** Saving Emacs Sessions - NOT IN USE
-https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
-#+BEGIN_SRC emacs-lisp
-;;(desktop-save-mode 1)
-#+END_SRC
 ** Syntax highlighting
 https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
 
 #+BEGIN_SRC emacs-lisp
 (setq org-src-fontify-natively t)
 #+END_SRC
+
 * org-bullets
 https://github.com/sabof/org-bullets
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+END_SRC
+
 * Themes 
 ** Load ~/.emacs.d/themes
 #+BEGIN_SRC emacs-lisp
@@ -112,7 +101,7 @@ https://github.com/joaotavora/yasnippet
 (add-hook 'org-mode-hook #'yas-minor-mode)
 (add-hook 'latex-mode-hook #'yas-minor-mode)
 #+END_SRC
-* FlySpell
+
 * ob-sagemath
 https://github.com/stakemori/ob-sagemath
 
@@ -150,6 +139,7 @@ https://github.com/auto-complete/auto-complete
 #+BEGIN_SRC emacs-lisp
 (ac-config-default)
 #+END_SRC
+
 ** auto-complete-sage
 https://github.com/stakemori/auto-complete-sage
 #+BEGIN_SRC emacs-lisp
@@ -158,11 +148,13 @@ https://github.com/stakemori/auto-complete-sage
 ;; Show quick help
 (setq ac-sage-show-quick-help t)
 #+END_SRC
+
 * Magit
 https://github.com/magit/magit
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
+
 * Emacs-dashboard
 https://github.com/rakanalh/emacs-dashboard
 
@@ -174,11 +166,13 @@ https://github.com/rakanalh/emacs-dashboard
 
 (setq dashboard-items '((recents  . 5)))
 #+END_SRC
+
 * Beacon
 https://github.com/Malabarba/beacon
 #+BEGIN_SRC emacs-lisp
 (beacon-mode 1)
 #+END_SRC
+
 * linum-relative
 https://github.com/coldnew/linum-relative
 
@@ -188,142 +182,196 @@ https://github.com/coldnew/linum-relative
 (setq linum-relative-backend 'display-line-numbers-mode)
 #+END_SRC
 
-* Treemacs
-https://github.com/Alexander-Miller/treemacs
+* Ido mode
+Ido mode
+
+#+BEGIN_SRC emacs-lisp
+(ido-mode 1)
+#+END_SRC
+
+* Helm
+** Find files
+Set C-h C-f
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-h C-f") 'helm-find-files)
+#+END_SRC
+
+* God-mode
+
+https://github.com/chrisdone/god-mode
+
+#+BEGIN_SRC emacs-lisp
+  (require 'god-mode)
+
+  ;; Set ½ as toggle
+  (global-set-key (kbd "C-½") 'god-mode-all)
+
+  ;; If you are using the global mode, you might want to make no buffers exempt
+  (setq god-exempt-major-modes nil)
+  (setq god-exempt-predicates nil)
+#+END_SRC
+
 * Emacs X Window Manager
 https://github.com/ch11ng/exwm
 
 https://github.com/ch11ng/exwm/wiki/Configuration-Example
+
+** Initialisation
 #+BEGIN_SRC emacs-lisp
-;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+  ;; Shrink fringes to 1 pixel
+  ;(fringe-mode 1)
 
-;; Shrink fringes to 1 pixel
-(fringe-mode 1)
+  ;; You may want Emacs to show you the time
+  ;(setq display-time-default-load-average nil)
+  ;(display-time-mode t)
 
-;; You may want Emacs to show you the time
-(setq display-time-default-load-average nil)
-(display-time-mode t)
+  ;; Emacs server is not required to run EXWM but it has some interesting uses
+  ;; (see next section)
+  (server-start)
 
-;; You are strongly encouraged to enable `ido-mode' (or something similar) to
-;; alter to default behavior of 'C-x b', or you will take great pains to switch
-;; to or back from a floating frame (remember 'C-x 5 o' if you refuse this
-;; proposal however)
-;; You may also want to call `exwm-config-ido' later (see below)
-(ido-mode 1)
+  ;;;; Below are configurations for EXWM
 
-;; Emacs server is not required to run EXWM but it has some interesting uses
-;; (see next section)
-(server-start)
+  ;; Load EXWM
+  (require 'exwm)
 
-;;;; Below are configurations for EXWM
+  ;; Fix problems with Ido
+  (require 'exwm-config)
+  (exwm-config-ido)
 
-;; Load EXWM
-(require 'exwm)
+  ;; Set the initial number of workspaces.
+  (setq exwm-workspace-number 10)
 
-;; Fix problems with Ido
-(require 'exwm-config)
-(exwm-config-ido)
-
-;; Set the initial number of workspaces.
-(setq exwm-workspace-number 10)
-
-;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
-;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
-;; when a new window class name or title is available. Here's some advice on
-;; this subject:
-;; + Always use `exwm-workspace-rename-buffer` to avoid naming conflict.
-;; + Only renaming buffer in one hook and avoid it in the other. There's no
-;;   guarantee on the order in which they are run.
-;; + For applications with multiple windows (e.g. GIMP), the class names of all
-;;   windows are probably the same. Using window titles for them makes more
-;;   sense.
-;; + Some application change its title frequently (e.g. browser, terminal).
-;;   Its class name may be more suitable for such case.
-;; In the following example, we use class names for all windows expect for
-;; Java applications and GIMP.
-(add-hook 'exwm-update-class-hook
-          (lambda ()
-            (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+  ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
+  ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
+  ;; when a new window class name or title is available. Here's some advice on
+  ;; this subject:
+  ;; + Always use `exwm-workspace-rename-buffer` to avoid naming conflict.
+  ;; + Only renaming buffer in one hook and avoid it in the other. There's no
+  ;;   guarantee on the order in which they are run.
+  ;; + For applications with multiple windows (e.g. GIMP), the class names of all
+  ;;   windows are probably the same. Using window titles for them makes more
+  ;;   sense.
+  ;; + Some application change its title frequently (e.g. browser, terminal).
+  ;;   Its class name may be more suitable for such case.
+  ;; In the following example, we use class names for all windows expect for
+  ;; Java applications and GIMP.
+  (add-hook 'exwm-update-class-hook
+            (lambda ()
+              (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+                          (string= "gimp" exwm-instance-name))
+                (exwm-workspace-rename-buffer exwm-class-name))))
+  (add-hook 'exwm-update-title-hook
+            (lambda ()
+              (when (or (not exwm-instance-name)
+                        (string-prefix-p "sun-awt-X11-" exwm-instance-name)
                         (string= "gimp" exwm-instance-name))
-              (exwm-workspace-rename-buffer exwm-class-name))))
-(add-hook 'exwm-update-title-hook
-          (lambda ()
-            (when (or (not exwm-instance-name)
-                      (string-prefix-p "sun-awt-X11-" exwm-instance-name)
-                      (string= "gimp" exwm-instance-name))
-              (exwm-workspace-rename-buffer exwm-title))))
-
-;; `exwm-input-set-key' allows you to set a global key binding (available in
-;; any case). Following are a few examples.
-;; + We always need a way to go back to line-mode from char-mode
-(exwm-input-set-key (kbd "s-r") #'exwm-reset)
-;; + Bind a key to switch workspace interactively
-(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
-;; + Bind "s-0" to "s-9" to switch to the corresponding workspace.
-(dotimes (i 10)
-  (exwm-input-set-key (kbd (format "s-%d" i))
-                      `(lambda ()
-                         (interactive)
-                         (exwm-workspace-switch-create ,i))))
-;; + Application launcher ('M-&' also works if the output buffer does not
-;;   bother you). Note that there is no need for processes to be created by
-;;   Emacs.
-(exwm-input-set-key (kbd "s-&")
-                    (lambda (command)
-                      (interactive (list (read-shell-command "$ ")))
-                      (start-process-shell-command command nil command)))
-
-;; + 'slock' is a simple X display locker provided by suckless tools.
-(exwm-input-set-key (kbd "s-<f2>")
-                    (lambda () (interactive) (start-process "" nil "slock")))
-
-;; The following example demonstrates how to set a key binding only available
-;; in line mode. It's simply done by first push the prefix key to
-;; `exwm-input-prefix-keys' and then add the key sequence to `exwm-mode-map'.
-;; The example shorten 'C-c q' to 'C-q'.
-(push ?\C-q exwm-input-prefix-keys)
-(define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
-
-;; The following example demonstrates how to use simulation keys to mimic the
-;; behavior of Emacs. The argument to `exwm-input-set-simulation-keys' is a
-;; list of cons cells (SRC . DEST), where SRC is the key sequence you press and
-;; DEST is what EXWM actually sends to application. Note that SRC must be a key
-;; sequence (of type vector or string), while DEST can also be a single key.
-(exwm-input-set-simulation-keys
- '(
-;; movement
-;;     ([?\C-b] . left)
-;;     ([?\M-b] . C-left)
-;;     ([?\C-f] . right)
-;;     ([?\M-f] . C-right)
-;;     ([?\C-p] . up)
-;;     ([?\C-n] . down)
-;;     ([?\C-a] . home)
-;;     ([?\C-e] . end)
-;;     ([?\M-v] . prior)
-;;     ([?\C-v] . next)
-;;     ([?\C-d] . delete)
-;;     ([?\C-k] . (S-end delete))
-;; cut/paste.
-     ([?\C-w] . ?\C-x)
-     ([?\M-w] . ?\C-c)
-     ([?\C-y] . ?\C-v)))
-;; search
-;;     ([?\C-s] . ?\C-f))
-;; 
-;; You can hide the mode-line of floating X windows by uncommenting the
-;; following lines
-;(add-hook 'exwm-floating-setup-hook #'exwm-layout-hide-mode-line)
-;(add-hook 'exwm-floating-exit-hook #'exwm-layout-show-mode-line)
-
-;; You can hide the minibuffer and echo area when they're not used, by
-;; uncommenting the following line
-;(setq exwm-workspace-minibuffer-position 'bottom)
-
-;; Do not forget to enable EXWM. It will start by itself when things are ready.
-;;(exwm-enable)
+                (exwm-workspace-rename-buffer exwm-title))))
 #+END_SRC
+
+** Startup apps
+
+#+BEGIN_SRC emacs-lisp
+(shell-command "setxkbmap -layout dk,gb -option grp:alt_shift_toggle")
+#+END_SRC
+
+** Keybinds
+#+BEGIN_SRC emacs-lisp
+  ;; `exwm-input-set-key' allows you to set a global key binding (available in
+  ;; any case). Following are a few examples.
+  ;; + We always need a way to go back to line-mode from char-mode
+  (exwm-input-set-key (kbd "s-r") #'exwm-reset)
+  ;; + Bind a key to switch workspace interactively
+  (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+  ;; + Bind "s-0" to "s-9" to switch to the corresponding workspace.
+  (dotimes (i 10)
+    (exwm-input-set-key (kbd (format "s-%d" i))
+                        `(lambda ()
+                           (interactive)
+                           (exwm-workspace-switch-create ,i))))
+  ;; + Application launcher ('M-&' also works if the output buffer does not
+  ;;   bother you). Note that there is no need for processes to be created by
+  ;;   Emacs.
+  (exwm-input-set-key (kbd "s-d")
+                      (lambda () (interactive) (counsel-linux-app)))
+  ;; + 'slock' is a simple X display locker provided by suckless tools.
+  (exwm-input-set-key (kbd "s-<f2>")
+                      (lambda () (interactive) (start-process "" nil "slock")))
+
+  ;; The following example demonstrates how to set a key binding only available
+  ;; in line mode. It's simply done by first push the prefix key to
+  ;; `exwm-input-prefix-keys' and then add the key sequence to `exwm-mode-map'.
+  ;; The example shorten 'C-c q' to 'C-q'.
+  (push ?\C-q exwm-input-prefix-keys)
+  (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
+
+  ;; The following example demonstrates how to use simulation keys to mimic the
+  ;; behavior of Emacs. The argument to `exwm-input-set-simulation-keys' is a
+  ;; list of cons cells (SRC . DEST), where SRC is the key sequence you press and
+  ;; DEST is what EXWM actually sends to application. Note that SRC must be a key
+  ;; sequence (of type vector or string), while DEST can also be a single key.
+  ;;(exwm-input-set-simulation-keys
+  ;; '(
+  ;; movement
+  ;;     ([?\C-b] . left)
+  ;;     ([?\M-b] . C-left)
+  ;;     ([?\C-f] . right)
+  ;;     ([?\M-f] . C-right)
+  ;;     ([?\C-p] . up)
+  ;;     ([?\C-n] . down)
+  ;;     ([?\C-a] . home)
+  ;;     ([?\C-e] . end)
+  ;;     ([?\M-v] . prior)
+  ;;     ([?\C-v] . next)
+  ;;     ([?\C-d] . delete)
+  ;;     ([?\C-k] . (S-end delete))
+  ;; cut/paste.
+  ;;     ([?\C-w] . ?\C-x)
+  ;;     ([?\M-w] . ?\C-c)
+  ;;     ([?\C-y] . ?\C-v)))
+  ;; search
+  ;;     ([?\C-s] . ?\C-f))
+#+END_SRC
+   
+*** Wind move
+https://www.emacswiki.org/emacs/WindMove
+
+#+BEGIN_SRC emacs-lisp
+  ;(global-set-key (kbd "s-<left>") 'windmove-left)
+  ;(global-set-key (kbd "s-<right>") 'windmove-right)
+  ;(global-set-key (kbd "s-<up>") 'windmove-up)
+  ;(global-set-key (kbd "s-<down>") 'windmove-down)
+
+  (exwm-input-set-key (kbd "s-<right>") 'windmove-right)
+  (exwm-input-set-key (kbd "s-<left>") 'windmove-left)
+  (exwm-input-set-key (kbd "s-<up>") 'windmove-up)
+  (exwm-input-set-key (kbd "s-<down>") 'windmove-down)
+#+END_SRC
+
+*** Buffer move
+https://github.com/lukhas/buffer-move
+
+#+BEGIN_SRC emacs-lisp
+  (require 'buffer-move)
+  ;(global-set-key (kbd "<s-S-up>")     'buf-move-up)
+  ;(global-set-key (kbd "<s-S-down>")   'buf-move-down)
+  ;(global-set-key (kbd "<s-S-left>")   'buf-move-left)
+  ;(global-set-key (kbd "<s-S-right>")  'buf-move-right)
+  (exwm-input-set-key (kbd "s-S-<right>") 'buf-move-right)
+  (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
+  (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
+  (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down)
+
+
+#+END_SRC
+
+* Multiple cursors
+https://github.com/magnars/multiple-cursors.el
+#+BEGIN_SRC emacs-lisp
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-M-<") 'mc/mark-all-like-this)
+#+END_SRC
+
 * 

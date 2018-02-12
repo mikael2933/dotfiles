@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mode-hook macro
+# key: hookmacro_
+# --
+
+(add-hook '$(1)
+	  (lambda () (local-set-key (kbd $(2)) #'$())))

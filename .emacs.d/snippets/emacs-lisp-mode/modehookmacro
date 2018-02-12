@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mode-hook macro
+# key: hookmacro_
+# --
+${1:results file}
+(add-hook '${1Org}Mode
+	  (lambda () (local-set-key (kbd ${2\"C-0\"}) #'${3command})))
