@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: equation
-# key: math_
-# --
-\begin{equation}
-$1
-\end{equation}
