@@ -144,28 +144,6 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-############
-# CUSTOM BAR
-############
-#bar {
-#    i3bar_command i3bar -t
-#    position top
-#    STATUS_COMMAND I3STATUS
-#}
-#bar {
-#    position top
-#    font pango: monospace, Ionicons 9
-#    status_command i3blocks
-#
-#    colors {
-#    	background #222D32
-#	
-#        focused_workspace #222D32 #222D32 #6BA4E7
-#	inactive_workspace #222D32 #222D32 #B8C8B6
-#    }
-#}
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 ##############
 # STARTUP APPS
 ##############
@@ -240,3 +218,27 @@ smart_gaps on
 smart_borders on
 for_window [class="^.*"] border pixel 3
 gaps inner 2
+
+############
+# CUSTOM BAR
+############
+#bar {
+#    i3bar_command i3bar -t
+#    position top
+#    STATUS_COMMAND I3STATUS
+#}
+#bar {
+#    position top
+#    font pango: monospace, Ionicons 9
+#    status_command i3blocks
+#
+#    colors {
+#    	background #222D32
+#	
+#        focused_workspace #222D32 #222D32 #6BA4E7
+#	inactive_workspace #222D32 #222D32 #B8C8B6
+#    }
+#}
+
+#Do at last to prevent no applets
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
