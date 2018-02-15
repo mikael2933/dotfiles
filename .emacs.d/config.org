@@ -32,6 +32,12 @@ Disable menu-, tool- and scroll-bar for more space
 (scroll-bar-mode -1)
 #+END_SRC
 
+** Truncate Lines
+
+#+BEGIN_SRC emacs-lisp
+(set-default 'truncate-line t)
+#+END_SRC
+
 ** Saving Emacs Sessions - NOT IN USE
 https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
 #+BEGIN_SRC emacs-lisp
@@ -69,27 +75,7 @@ https://github.com/sabof/org-bullets
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 #+END_SRC
-** doom-themes - NOT IN USE
-https://github.com/hlissner/emacs-doom-themes#install
-#+BEGIN_SRC emacs-lisp
-;(require 'doom-themes)
-;(load-theme 'doom-spacegrey t)
-#+END_SRC
 
-** Tomorrow Night Bright - NOT IN USE
-#+BEGIN_SRC emacs-lisp
-;;(load-theme 'sanityinc-tomorrow-bright t)
-#+END_SRC
-** (Built in) Manoj dark - NOT IN USE
-#+BEGIN_SRC emacs-lisp
-;;(load-theme 'manoj-dark t)
-#+END_SRC
-** Custom Manoj dark
-Modified version of original manoj dark theme.
-#
-#+BEGIN_SRC emacs-lisp
-(load-theme 'custom-manoj-dark t)
-#+END_SRC
 
 * YASnippet
 https://github.com/joaotavora/yasnippet
@@ -361,8 +347,6 @@ https://github.com/lukhas/buffer-move
   (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
   (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
   (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down)
-
-
 #+END_SRC
 
 * Multiple cursors
@@ -373,5 +357,31 @@ https://github.com/magnars/multiple-cursors.el
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-M-<") 'mc/mark-all-like-this)
 #+END_SRC
+
+* Smex
+https://github.com/nonsequitur/smex
+
+#+BEGIN_SRC emacs-lisp
+(require 'smex)
+;; Rebind M-x to smex
+(global-set-key (kbd "M-x") 'smex)
+#+END_SRC
+
+* Haskell-mode
+http://haskell.github.io/haskell-mode/manual/latest/Editing-Haskell-Code.html#Editing-Haskell-Code
+
+** Haskell-navigate-import
+Bind to f8
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load 'haskell-mode
+    '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+#+END_SRC
+
+** Haskell tags
+https://github.com/MarcWeber/hasktags
+Requires hasktags
+
+* Intero
+https://github.com/commercialhaskell/intero
 
 * 
