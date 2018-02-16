@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "atomic-chrome")
 (depends-on "auto-complete-sage")
 (depends-on "beacon")
 (depends-on "buffer-move")
