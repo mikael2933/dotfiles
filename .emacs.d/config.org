@@ -384,4 +384,11 @@ Requires hasktags
 * Intero
 https://github.com/commercialhaskell/intero
 
+* Atomic Chrome
+https://github.com/alpha22jp/atomic-chrome
+#+BEGIN_SRC emacs-lisp
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
+#+END_SRC
+
 * 
