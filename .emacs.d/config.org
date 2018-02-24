@@ -459,7 +459,6 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
         '(("home"
            ("dired" (mode . dired-mode))
            ("org" (name . "^.*org$"))
-
            ("web" (or (mode . web-mode) (mode . js2-mode)))
            ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
            ("mu4e" (name . "\*mu4e\*"))
@@ -471,7 +470,7 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
            ("emacs" (or
                      (name . "^\\*scratch\\*$")
                      (name . "^\\*Messages\\*$")))
-           ))))
+           )))
   (add-hook 'ibuffer-mode-hook
             '(lambda ()
                (ibuffer-auto-mode 1)
