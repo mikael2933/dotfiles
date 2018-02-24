@@ -437,15 +437,17 @@ https://github.com/bbatsov/projectile
 * Counsel Projectile
 https://github.com/ericdanan/counsel-projectile
 
-* Dump-jump
+* Dump-jump - Manual Load
 https://github.com/jacktasia/dumb-jump
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-g o") dumb-jump-go-other-window)
-  (global-set-key (kbd "M-g j") dumb-jump-go)
-  (global-set-key (kbd "M-g i") dumb-jump-go-prompt)
-  (global-set-key (kbd "M-g x") dumb-jump-go-prefer-external)
-  (global-set-key (kbd "M-g z") dumb-jump-go-prefer-external-other-window)
-  (dumb-jump-mode)
+  (defun load-dump-jump()
+    (interactive)
+    (dumb-jump-mode)
+    (global-set-key (kbd "M-g o") dumb-jump-go-other-window)
+    (global-set-key (kbd "M-g j") dumb-jump-go)
+    (global-set-key (kbd "M-g i") dumb-jump-go-prompt) 
+    (global-set-key (kbd "M-g x") dumb-jump-go-prefer-external)  
+    (global-set-key (kbd "M-g z") dumb-jump-go-prefer-external-other-window))
 #+END_SRC
 
 * IBuffer
