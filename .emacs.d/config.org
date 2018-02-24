@@ -324,8 +324,7 @@ Manual load with (load-exwm)
     (exwm-input-set-key (kbd "s-S-<right>") 'buf-move-right)
     (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
     (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
-    (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down)
-    )
+    (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down))
 
 #+END_SRC
 
