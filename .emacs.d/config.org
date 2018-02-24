@@ -3,9 +3,9 @@
 #+AUTHOR: Mikael Zhang
 
 * Emacs internal configuration
-** Load library path ~/run-afteLZh
+** Load library path ~/.emacs.d/lib/
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/lib/")
+  (add-to-list 'load-path "~/.emacs.d/lib/")
 #+END_SRC
 
 ** Indent
