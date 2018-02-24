@@ -44,6 +44,8 @@ https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.
 ;;(desktop-save-mode 1)
 #+END_SRC
 
+** Don't ask follow symlinks
+https://emacs.stackexchange.com/questions/3673/how-to-make-vc-and-magit-treat-a-symbolic-link-to-a-real-file-in-git-repo-just
 * org-mode configuration
 ** Beamer org export
 
