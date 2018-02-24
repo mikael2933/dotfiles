@@ -83,7 +83,7 @@ jarring angry fruit salad look to reduce eye fatigue.")
  '(font-lock-regexp-grouping-construct ((t (:bold t :weight bold))))
  '(font-lock-variable-name-face ((t (:foreground "Aquamarine"))))
  '(font-lock-function-name-face ((t (:foreground "mediumspringgreen"
-				     :weight bold :height 1.1))))
+						 :weight bold :height 1.1))))
  '(font-lock-string-face        ((t (:foreground "RosyBrown1"))))
  '(font-lock-comment-face       ((t (:italic t :slant oblique :foreground "chocolate1"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "Salmon"))))
@@ -407,8 +407,8 @@ jarring angry fruit salad look to reduce eye fatigue.")
  '(compilation-warning ((t (:bold t :foreground "Orange" :weight bold))))
  '(compilation-warning-face ((t (:bold t :foreground "Orange" :weight bold))))
  '(completions-common-part ((t (:width normal :weight normal
-                                :slant normal :foreground "WhiteSmoke"
-				:background "black" :height 81))))
+				       :slant normal :foreground "WhiteSmoke"
+				       :background "black" :height 81))))
  '(completions-first-difference ((t (:bold t :weight bold))))
 
  '(css-selector ((t (:foreground "LightSteelBlue"))))
@@ -437,7 +437,7 @@ jarring angry fruit salad look to reduce eye fatigue.")
                                           :foreground "black"
                                           :box '(:line-width 2 :style released-button)))))
  '(custom-variable-tag-face ((t (:bold t :foreground "light blue"
-                                         :weight bold :height 1.2))))
+				       :weight bold :height 1.2))))
 
  '(diary ((t (:foreground "IndianRed"))))
  '(diary-anniversary ((t (:foreground "Cyan1"))))
@@ -592,8 +592,7 @@ jarring angry fruit salad look to reduce eye fatigue.")
  '(match ((t (:background "RoyalBlue3"))))
  '(minibuffer-prompt ((t (:foreground "cyan"))))
  '(mode-line ((t (:background "grey75" :foreground "Blue"
-                  :box '(:line-width -1 :style released-button)
-                  :height 0.9))))
+			      :height 0.9))))
  '(mode-line-buffer-id ((t (:background "grey65" :foreground "red"
                                         :bold t :weight bold :height 0.9))))
  '(mode-line-emphasis ((t (:bold t :weight bold))))

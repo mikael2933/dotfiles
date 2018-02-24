@@ -478,3 +478,9 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 #+END_SRC
 
 * PowerLine
+https://github.com/jonathanchu/emacs-powerline
+
+#+BEGIN_SRC emacs-lisp
+  (require 'powerline)
+#+END_SRC
+

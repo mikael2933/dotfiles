@@ -20,7 +20,8 @@
  '(custom-enabled-themes (quote (custom-manoj-dark)))
  '(custom-safe-themes
    (quote
-    ("3e909a9928f6858f37d76ab0bfb660c49a9b820f77cd469c64b042708ed80f71" default)))
+    ("6dd47525c8cf4a7c1a952290900e658cb0583289acdc487fd6ba14ba1068ccad" "3e909a9928f6858f37d76ab0bfb660c49a9b820f77cd469c64b042708ed80f71" default)))
+ '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
  '(font-use-system-font t)
  '(haskell-mode-hook nil)
