@@ -3,7 +3,7 @@
 #+AUTHOR: Mikael Zhang
 
 * Emacs internal configuration
-** Load library path ~/.emacs.d/lib/
+** Load library path ~/run-afteLZh
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/lib/")
 #+END_SRC
@@ -27,7 +27,7 @@
 ** Disable bars
 Disable menu-, tool- and scroll-bar for more space
 #+BEGIN_SRC emacs-lisp
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 #+END_SRC
@@ -70,12 +70,16 @@ https://github.com/sabof/org-bullets
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+END_SRC
 
-* Themes 
+* Theme and looks 
 ** Load ~/.emacs.d/themes
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 #+END_SRC
 
+** Highlight Line Mode
+#+BEGIN_SRC emacs-lisp
+(global-hl-line-mode t)
+#+END_SRC
 
 * YASnippet
 https://github.com/joaotavora/yasnippet
@@ -145,12 +149,17 @@ https://github.com/magit/magit
 https://github.com/rakanalh/emacs-dashboard
 
 #+BEGIN_SRC emacs-lisp
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-;;(setq dashboard-items '((recents  . 5)
-;;                        (bookmarks . 5)))
+  (require 'dashboard)
+  (dashboard-setup-startup-hook)
 
-(setq dashboard-items '((recents  . 5)))
+  ;; Fix emacsclient. Switch on new frame
+  (defun switch-to-dashboard(frame)
+    (with-selected-frame frame
+      (run-with-timer 0.1 nil #'dashboard-refresh-buffer)))
+  (add-hook 'after-make-frame-functions 'switch-to-dashboard)
+  ;;(setq dashboard-items '((recents  . 5)
+  ;;                        (bookmarks . 5)))
+  (setq dashboard-items '((recents  . 5)))
 #+END_SRC
 
 * Beacon
@@ -163,16 +172,8 @@ https://github.com/Malabarba/beacon
 https://github.com/coldnew/linum-relative
 
 #+BEGIN_SRC emacs-lisp
-(require 'linum-relative)
-;; Use `display-line-number-mode` as linum-mode's backend for smooth performance
-(setq linum-relative-backend 'display-line-numbers-mode)
-#+END_SRC
-
-* Ido mode
-Ido mode
-
-#+BEGIN_SRC emacs-lisp
-(ido-mode 1)
+  (require 'linum-relative)
+  (global-set-key (kbd "C-<f9>") 'linum-relative-toggle)
 #+END_SRC
 
 * Helm
@@ -198,155 +199,140 @@ https://github.com/chrisdone/god-mode
   (setq god-exempt-predicates nil)
 #+END_SRC
 
-* Emacs X Window Manager
+* Emacs X Window Manager - Manual Load
 https://github.com/ch11ng/exwm
 
 https://github.com/ch11ng/exwm/wiki/Configuration-Example
 
 ** Initialisation
+Including Buffer move: https://github.com/lukhas/buffer-move
+
+Manual load with (load-exwm)
+
 #+BEGIN_SRC emacs-lisp
-  ;; Shrink fringes to 1 pixel
-  ;(fringe-mode 1)
+  (defun load-exwm()
+    (interactive)
+    ;; You may want Emacs to show you the time
+    (setq display-time-default-load-average nil)
+    (display-time-mode t)
 
-  ;; You may want Emacs to show you the time
-  ;(setq display-time-default-load-average nil)
-  ;(display-time-mode t)
+    ;; Emacs server is not required to run EXWM but it has some interesting uses
+    ;; (see next section)
+    (server-start)
 
-  ;; Emacs server is not required to run EXWM but it has some interesting uses
-  ;; (see next section)
-  (server-start)
+    ;;;; Below are configurations for EXWM
 
-  ;;;; Below are configurations for EXWM
+    ;; Load EXWM
+    (require 'exwm)
 
-  ;; Load EXWM
-  (require 'exwm)
+    ;; Fix problems with Ido
+    (require 'exwm-config)
+    (exwm-config-ido)
 
-  ;; Fix problems with Ido
-  (require 'exwm-config)
-  (exwm-config-ido)
+    ;; Set the initial number of workspaces.
+    (setq exwm-workspace-number 10)
 
-  ;; Set the initial number of workspaces.
-  (setq exwm-workspace-number 10)
-
-  ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
-  ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
-  ;; when a new window class name or title is available. Here's some advice on
-  ;; this subject:
-  ;; + Always use `exwm-workspace-rename-buffer` to avoid naming conflict.
-  ;; + Only renaming buffer in one hook and avoid it in the other. There's no
-  ;;   guarantee on the order in which they are run.
-  ;; + For applications with multiple windows (e.g. GIMP), the class names of all
-  ;;   windows are probably the same. Using window titles for them makes more
-  ;;   sense.
-  ;; + Some application change its title frequently (e.g. browser, terminal).
-  ;;   Its class name may be more suitable for such case.
-  ;; In the following example, we use class names for all windows expect for
-  ;; Java applications and GIMP.
-  (add-hook 'exwm-update-class-hook
-            (lambda ()
-              (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+    ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
+    ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
+    ;; when a new window class name or title is available. Here's some advice on
+    ;; this subject:
+    ;; + Always use `exwm-workspace-rename-buffer` to avoid naming conflict.
+    ;; + Only renaming buffer in one hook and avoid it in the other. There's no
+    ;;   guarantee on the order in which they are run.
+    ;; + For applications with multiple windows (e.g. GIMP), the class names of all
+    ;;   windows are probably the same. Using window titles for them makes more
+    ;;   sense.
+    ;; + Some application change its title frequently (e.g. browser, terminal).
+    ;;   Its class name may be more suitable for such case.
+    ;; In the following example, we use class names for all windows expect for
+    ;; Java applications and GIMP.
+    (add-hook 'exwm-update-class-hook
+              (lambda ()
+                (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+                            (string= "gimp" exwm-instance-name))
+                  (exwm-workspace-rename-buffer exwm-class-name))))
+    (add-hook 'exwm-update-title-hook
+              (lambda ()
+                (when (or (not exwm-instance-name)
+                          (string-prefix-p "sun-awt-X11-" exwm-instance-name)
                           (string= "gimp" exwm-instance-name))
-                (exwm-workspace-rename-buffer exwm-class-name))))
-  (add-hook 'exwm-update-title-hook
-            (lambda ()
-              (when (or (not exwm-instance-name)
-                        (string-prefix-p "sun-awt-X11-" exwm-instance-name)
-                        (string= "gimp" exwm-instance-name))
-                (exwm-workspace-rename-buffer exwm-title))))
+                  (exwm-workspace-rename-buffer exwm-title))))
+    ;;;; STARTUP APPS
+    (shell-command "setxkbmap -layout dk,gb -option grp:alt_shift_toggle")
+
+    ;;;; KEYBINDS
+
+    ;; `exwm-input-set-key' allows you to set a global key binding (available in
+    ;; any case). Following are a few examples.
+    ;; + We always need a way to go back to line-mode from char-mode
+    (exwm-input-set-key (kbd "s-r") #'exwm-reset)
+    ;; + Bind a key to switch workspace interactively
+    (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+    ;; + Bind "s-0" to "s-9" to switch to the corresponding workspace.
+    (dotimes (i 10)
+      (exwm-input-set-key (kbd (format "s-%d" i))
+                          `(lambda ()
+                             (interactive)
+                             (exwm-workspace-switch-create ,i))))
+    ;; + Application launcher ('M-&' also works if the output buffer does not
+    ;;   bother you). Note that there is no need for processes to be created by
+    ;;   Emacs.
+    (exwm-input-set-key (kbd "s-d")
+                        (lambda () (interactive) (counsel-linux-app)))
+    ;; + 'slock' is a simple X display locker provided by suckless tools.
+    (exwm-input-set-key (kbd "s-<f2>")
+                        (lambda () (interactive) (start-process "" nil "slock")))
+
+    ;; The following example demonstrates how to set a key binding only available
+    ;; in line mode. It's simply done by first push the prefix key to
+    ;; `exwm-input-prefix-keys' and then add the key sequence to `exwm-mode-map'.
+    ;; The example shorten 'C-c q' to 'C-q'.
+    (push ?\C-q exwm-input-prefix-keys)
+    (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
+
+    ;; The following example demonstrates how to use simulation keys to mimic the
+    ;; behavior of Emacs. The argument to `exwm-input-set-simulation-keys' is a
+    ;; list of cons cells (SRC . DEST), where SRC is the key sequence you press and
+    ;; DEST is what EXWM actually sends to application. Note that SRC must be a key
+    ;; sequence (of type vector or string), while DEST can also be a single key.
+    ;;(exwm-input-set-simulation-keys
+    ;; '(
+    ;; movement
+    ;;     ([?\C-b] . left)
+    ;;     ([?\M-b] . C-left)
+    ;;     ([?\C-f] . right)
+    ;;     ([?\M-f] . C-right)
+    ;;     ([?\C-p] . up)
+    ;;     ([?\C-n] . down)
+    ;;     ([?\C-a] . home)
+    ;;     ([?\C-e] . end)
+    ;;     ([?\M-v] . prior)
+    ;;     ([?\C-v] . next)
+    ;;     ([?\C-d] . delete)
+    ;;     ([?\C-k] . (S-end delete))
+    ;; cut/paste.
+    ;;     ([?\C-w] . ?\C-x)
+    ;;     ([?\M-w] . ?\C-c)
+    ;;     ([?\C-y] . ?\C-v)))
+    ;; search
+    ;;     ([?\C-s] . ?\C-f))
+
+    ;;;; Buffer move: https://github.com/lukhas/buffer-move
+    (require 'buffer-move)
+    (exwm-input-set-key (kbd "s-S-<right>") 'buf-move-right)
+    (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
+    (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
+    (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down)
+    )
+
 #+END_SRC
 
-** Startup apps
+* Ace-window
+
+https://github.com/abo-abo/ace-window
 
 #+BEGIN_SRC emacs-lisp
-(shell-command "setxkbmap -layout dk,gb -option grp:alt_shift_toggle")
-#+END_SRC
-
-** Keybinds
-#+BEGIN_SRC emacs-lisp
-  ;; `exwm-input-set-key' allows you to set a global key binding (available in
-  ;; any case). Following are a few examples.
-  ;; + We always need a way to go back to line-mode from char-mode
-  (exwm-input-set-key (kbd "s-r") #'exwm-reset)
-  ;; + Bind a key to switch workspace interactively
-  (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
-  ;; + Bind "s-0" to "s-9" to switch to the corresponding workspace.
-  (dotimes (i 10)
-    (exwm-input-set-key (kbd (format "s-%d" i))
-                        `(lambda ()
-                           (interactive)
-                           (exwm-workspace-switch-create ,i))))
-  ;; + Application launcher ('M-&' also works if the output buffer does not
-  ;;   bother you). Note that there is no need for processes to be created by
-  ;;   Emacs.
-  (exwm-input-set-key (kbd "s-d")
-                      (lambda () (interactive) (counsel-linux-app)))
-  ;; + 'slock' is a simple X display locker provided by suckless tools.
-  (exwm-input-set-key (kbd "s-<f2>")
-                      (lambda () (interactive) (start-process "" nil "slock")))
-
-  ;; The following example demonstrates how to set a key binding only available
-  ;; in line mode. It's simply done by first push the prefix key to
-  ;; `exwm-input-prefix-keys' and then add the key sequence to `exwm-mode-map'.
-  ;; The example shorten 'C-c q' to 'C-q'.
-  (push ?\C-q exwm-input-prefix-keys)
-  (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
-
-  ;; The following example demonstrates how to use simulation keys to mimic the
-  ;; behavior of Emacs. The argument to `exwm-input-set-simulation-keys' is a
-  ;; list of cons cells (SRC . DEST), where SRC is the key sequence you press and
-  ;; DEST is what EXWM actually sends to application. Note that SRC must be a key
-  ;; sequence (of type vector or string), while DEST can also be a single key.
-  ;;(exwm-input-set-simulation-keys
-  ;; '(
-  ;; movement
-  ;;     ([?\C-b] . left)
-  ;;     ([?\M-b] . C-left)
-  ;;     ([?\C-f] . right)
-  ;;     ([?\M-f] . C-right)
-  ;;     ([?\C-p] . up)
-  ;;     ([?\C-n] . down)
-  ;;     ([?\C-a] . home)
-  ;;     ([?\C-e] . end)
-  ;;     ([?\M-v] . prior)
-  ;;     ([?\C-v] . next)
-  ;;     ([?\C-d] . delete)
-  ;;     ([?\C-k] . (S-end delete))
-  ;; cut/paste.
-  ;;     ([?\C-w] . ?\C-x)
-  ;;     ([?\M-w] . ?\C-c)
-  ;;     ([?\C-y] . ?\C-v)))
-  ;; search
-  ;;     ([?\C-s] . ?\C-f))
-#+END_SRC
-   
-*** Wind move
-https://www.emacswiki.org/emacs/WindMove
-
-#+BEGIN_SRC emacs-lisp
-  ;(global-set-key (kbd "s-<left>") 'windmove-left)
-  ;(global-set-key (kbd "s-<right>") 'windmove-right)
-  ;(global-set-key (kbd "s-<up>") 'windmove-up)
-  ;(global-set-key (kbd "s-<down>") 'windmove-down)
-
-  (exwm-input-set-key (kbd "s-<right>") 'windmove-right)
-  (exwm-input-set-key (kbd "s-<left>") 'windmove-left)
-  (exwm-input-set-key (kbd "s-<up>") 'windmove-up)
-  (exwm-input-set-key (kbd "s-<down>") 'windmove-down)
-#+END_SRC
-
-*** Buffer move
-https://github.com/lukhas/buffer-move
-
-#+BEGIN_SRC emacs-lisp
-  (require 'buffer-move)
-  ;(global-set-key (kbd "<s-S-up>")     'buf-move-up)
-  ;(global-set-key (kbd "<s-S-down>")   'buf-move-down)
-  ;(global-set-key (kbd "<s-S-left>")   'buf-move-left)
-  ;(global-set-key (kbd "<s-S-right>")  'buf-move-right)
-  (exwm-input-set-key (kbd "s-S-<right>") 'buf-move-right)
-  (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
-  (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
-  (exwm-input-set-key (kbd "s-S-<down>") 'buf-move-down)
+(global-set-key (kbd "M-o") 'ace-window)
 #+END_SRC
 
 * Multiple cursors
@@ -355,16 +341,7 @@ https://github.com/magnars/multiple-cursors.el
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-M-<") 'mc/mark-all-like-this)
-#+END_SRC
-
-* Smex
-https://github.com/nonsequitur/smex
-
-#+BEGIN_SRC emacs-lisp
-(require 'smex)
-;; Rebind M-x to smex
-(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "C-;") 'mc/mark-all-like-this)
 #+END_SRC
 
 * Haskell-mode
@@ -384,11 +361,118 @@ Requires hasktags
 * Intero
 https://github.com/commercialhaskell/intero
 
-* Atomic Chrome
-https://github.com/alpha22jp/atomic-chrome
+* Swiper
+https://github.com/abo-abo/swiper
+
 #+BEGIN_SRC emacs-lisp
-(require 'atomic-chrome)
-(atomic-chrome-start-server)
+  (global-set-key "\C-s" 'swiper)
+  (global-set-key "\M-s" 'isearch-forward)
 #+END_SRC
 
-* 
+* Ivy
+https://github.com/abo-abo/swiper
+
+#+BEGIN_SRC emacs-lisp
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+#+END_SRC
+
+* Counsel
+https://github.com/abo-abo/swiper
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  (global-set-key (kbd "C-c g") 'counsel-git)
+  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-x l") 'counsel-locate)
+  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+  (global-set-key (kbd "M-y") 'counsel-yank-pop)
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-histor)
+#+END_SRC
+
+* Undo Tree
+https://www.emacswiki.org/emacs/UndoTree
+
+#+BEGIN_SRC emacs-lisp
+  (global-undo-tree-mode)
+#+END_SRC
+
+* Aggressive Indent Mode
+https://github.com/Malabarba/aggressive-indent-mode
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'prog-mode-hook #'aggressive-indent-mode)
+#+END_SRC
+
+* Expand Region
+https://github.com/magnars/expand-region.el
+
+#+BEGIN_SRC emacs-lisp
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+#+END_SRC
+
+* Git Gutter
+https://github.com/syohex/emacs-git-gutter
+#+begin_src emacs-lisp
+  (global-git-gutter-mode +1)
+#+end_src
+
+* Projectile
+https://github.com/bbatsov/projectile
+#+BEGIN_SRC emacs-lisp
+  (projectile-global-mode)
+#+END_SRC
+
+* Counsel Projectile
+https://github.com/ericdanan/counsel-projectile
+
+* Dump-jump
+https://github.com/jacktasia/dumb-jump
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-g o") dumb-jump-go-other-window)
+  (global-set-key (kbd "M-g j") dumb-jump-go)
+  (global-set-key (kbd "M-g i") dumb-jump-go-prompt)
+  (global-set-key (kbd "M-g x") dumb-jump-go-prefer-external)
+  (global-set-key (kbd "M-g z") dumb-jump-go-prefer-external-other-window)
+  (dumb-jump-mode)
+#+END_SRC
+
+* IBuffer
+https://www.emacswiki.org/emacs/IbufferMode
+http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (setq ibuffer-saved-filter-groups
+        '(("home"
+           ("dired" (mode . dired-mode))
+           ("org" (name . "^.*org$"))
+
+           ("web" (or (mode . web-mode) (mode . js2-mode)))
+           ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
+           ("mu4e" (name . "\*mu4e\*"))
+           ("programming" (or
+                           (mode . python-mode)
+                           (mode . c++-mode)
+                           (mode . haskell-mode)
+                           (mode . emacs-lisp-mode)))
+           ("emacs" (or
+                     (name . "^\\*scratch\\*$")
+                     (name . "^\\*Messages\\*$")))
+           ))))
+  (add-hook 'ibuffer-mode-hook
+            '(lambda ()
+               (ibuffer-auto-mode 1)
+               (ibuffer-switch-to-saved-filter-groups "home")))
+#+END_SRC
+
+* PowerLine
