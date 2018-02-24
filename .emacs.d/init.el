@@ -20,7 +20,7 @@
  '(custom-enabled-themes (quote (custom-manoj-dark)))
  '(custom-safe-themes
    (quote
-    ("6dd47525c8cf4a7c1a952290900e658cb0583289acdc487fd6ba14ba1068ccad" "3e909a9928f6858f37d76ab0bfb660c49a9b820f77cd469c64b042708ed80f71" default)))
+    ("7d4b36cd04ccb623b79196363304199e13eaf3947229c23e7e54b380236588f8" "6d684339a099cf522abc6301baeb63db863911bd671b1123deb2dc5df76aab5b" "6dd47525c8cf4a7c1a952290900e658cb0583289acdc487fd6ba14ba1068ccad" "3e909a9928f6858f37d76ab0bfb660c49a9b820f77cd469c64b042708ed80f71" default)))
  '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
  '(font-use-system-font t)
