@@ -175,6 +175,9 @@ exec --no-startup-id compton -i 0.8 --backend glx --vsync opengl-swc --no-fading
 #SSH-Agent
 exec --no-startup-id eval "$(ssh-agent -s)"
 
+#Polkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 ####################
 # CUSTOM KEYBINDINGS
 ####################
