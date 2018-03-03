@@ -477,10 +477,10 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
                (ibuffer-switch-to-saved-filter-groups "home")))
 #+END_SRC
 
-* PowerLine
-https://github.com/jonathanchu/emacs-powerline
+* Auto Pairs
+https://www.emacswiki.org/emacs/AutoPairs
 
 #+BEGIN_SRC emacs-lisp
-  (require 'powerline)
+  (add-hook 'prog-mode 'electric-pair-mode)
 #+END_SRC
 
