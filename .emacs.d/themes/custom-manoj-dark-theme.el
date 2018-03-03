@@ -593,8 +593,8 @@ jarring angry fruit salad look to reduce eye fatigue.")
  '(minibuffer-prompt ((t (:foreground "cyan"))))
  '(mode-line ((t (:background "grey75" :foreground "Blue"
 			      :height 0.9))))
- '(mode-line-buffer-id ((t (:background "grey65" :foreground "red"
-                                        :bold t :weight bold :height 0.9))))
+ '(mode-line-buffer-id ((t (:background "grey75" :foreground "Blue"
+					:height 1.1))))
  '(mode-line-emphasis ((t (:bold t :weight bold))))
  '(mode-line-highlight ((t (:box (:line-width 2 :color "grey40"
 					      :style released-button :height 0.9)))))
