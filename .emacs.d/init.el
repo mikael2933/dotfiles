@@ -30,6 +30,8 @@
  '(haskell-tags-on-save t)
  '(inhibit-startup-screen t)
  '(intero-global-mode t nil (intero))
+ '(max-lisp-eval-depth 10000)
+ '(max-specpdl-size 10000)
  '(package-selected-packages
    (quote
     (powerline ibuffer-git dumb-jump counsel-projectile projectile git-gutter iedit expand-region aggressive-indent undo-tree ox-reveal ace-window swiper-helm atomic-chrome intero smex multiple-cursors buffer-move ## god-mode haskell-mode counsel rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm doom-themes dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage)))
