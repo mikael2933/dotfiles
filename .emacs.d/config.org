@@ -83,6 +83,13 @@ https://github.com/sabof/org-bullets
 (global-hl-line-mode t)
 #+END_SRC
 
+** PowerLine
+https://github.com/jonathanchu/emacs-powerline
+
+#+BEGIN_SRC emacs-lisp
+  (require 'powerline)
+#+END_SRC
+
 * YASnippet
 https://github.com/joaotavora/yasnippet
 #+BEGIN_SRC emacs-lisp
