@@ -19,6 +19,7 @@
 (depends-on "flyspell-correct-ivy")
 (depends-on "ghub")
 (depends-on "git-gutter")
+(depends-on "git-timemachine")
 (depends-on "god-mode")
 (depends-on "haskell-mode")
 (depends-on "helm")
