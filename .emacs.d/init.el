@@ -38,6 +38,7 @@
  '(projectile-completion-system (quote ivy))
  '(ring-bell-function (quote ignore))
  '(vc-follow-symlinks t)
+ '(show-smartparens-global-mode t)
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
