@@ -493,3 +493,11 @@ https://www.emacswiki.org/emacs/AutoPairs
   (add-hook 'prog-mode 'electric-pair-mode)
 #+END_SRC
 
+* OneKey - CAN'T GET TO WORK
+https://www.emacswiki.org/emacs/OneKey
+
+#+BEGIN_SRC emacs-lisp
+  ;(require 'one-key)
+  ;(global-set-key (kbd "<f10>") 'one-key-open-associated-menu-set)
+#+END_SRC
+
