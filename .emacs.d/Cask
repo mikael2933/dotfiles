@@ -41,6 +41,7 @@
 (depends-on "rainbow-mode")
 (depends-on "ranger")
 (depends-on "sage-shell-mode")
+(depends-on "smartparens")
 (depends-on "smex")
 (depends-on "swiper-helm")
 (depends-on "undo-tree")

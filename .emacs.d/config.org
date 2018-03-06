@@ -486,11 +486,13 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 	       (ibuffer-switch-to-saved-filter-groups "home")))
 #+END_SRC
 
-* Auto Pairs
-https://www.emacswiki.org/emacs/AutoPairs
+* smartparens
+https://github.com/Fuco1/smartparens
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode 'electric-pair-mode)
+  (require 'smartparens-config)
+  (add-hook 'prog-mode #'smartparens-mode)
+  (add-hook 'org-mode #'smartparens-mode)
 #+END_SRC
 
 * OneKey - CAN'T GET TO WORK
