@@ -508,3 +508,10 @@ https://www.emacswiki.org/emacs/OneKey
   ;(global-set-key (kbd "<f10>") 'one-key-open-associated-menu-set)
 #+END_SRC
 
+* Flyceck
+http://www.flycheck.org/en/latest/
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'prog-mode #'flycheck-mode)
+#+END_SRC
+
