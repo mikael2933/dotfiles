@@ -435,6 +435,11 @@ https://github.com/magnars/expand-region.el
 https://github.com/syohex/emacs-git-gutter
 #+begin_src emacs-lisp
   (global-git-gutter-mode +1)
+  (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
+  (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
+  (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
+  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+  (global-set-key (kbd "C-x v SPC") #'git-gutter:mark-hunk)
 #+end_src
 
 * Projectile
