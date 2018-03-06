@@ -95,12 +95,8 @@ https://github.com/jonathanchu/emacs-powerline
 * YASnippet
 https://github.com/joaotavora/yasnippet
 #+BEGIN_SRC emacs-lisp
-(require 'yasnippet)
-(yas-reload-all)
-;;Add hook for prog-mode and org-mode
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-(add-hook 'org-mode-hook #'yas-minor-mode)
-(add-hook 'latex-mode-hook #'yas-minor-mode)
+  (require 'yasnippet)
+  (yas-global-mode 1)
 #+END_SRC
 
 * ob-sagemath
@@ -420,7 +416,7 @@ https://www.emacswiki.org/emacs/UndoTree
 https://github.com/Malabarba/aggressive-indent-mode
 
 #+BEGIN_SRC emacs-lisp
-(add-hook 'prog-mode-hook #'aggressive-indent-mode)
+  (global-aggressive-indent-mode 1)
 #+END_SRC
 
 * Expand Region
@@ -491,13 +487,11 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 	       (ibuffer-switch-to-saved-filter-groups "home")))
 #+END_SRC
 
-* smartparens
+* Smartparens
 https://github.com/Fuco1/smartparens
 
 #+BEGIN_SRC emacs-lisp
   (require 'smartparens-config)
-  (add-hook 'prog-mode #'smartparens-mode)
-  (add-hook 'org-mode #'smartparens-mode)
 #+END_SRC
 
 * OneKey - CAN'T GET TO WORK
@@ -508,18 +502,18 @@ https://www.emacswiki.org/emacs/OneKey
   ;(global-set-key (kbd "<f10>") 'one-key-open-associated-menu-set)
 #+END_SRC
 
-* Flyceck
+* Flycheck
 http://www.flycheck.org/en/latest/
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode #'flycheck-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
 #+END_SRC
 
 * HideShow
 https://www.emacswiki.org/emacs/HideShow
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook prog-mode 'hs-minor-mode)
+  (add-hook 'prog-mode-hook 'hs-minor-mode)
 #+END_SRC
 
 * PredictiveMode - Manual Load
