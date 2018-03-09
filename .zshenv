@@ -7,4 +7,4 @@ export PATH="${PATH}:~/bin"
 export QT_QPA_PLATFORMTHEME="gtk2"
 export PATH="~/.cask/bin:$PATH"
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
-export TERMINAL=urxvt
+

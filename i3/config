@@ -2,7 +2,7 @@
 # GLOBAL VARIABLES
 ##################
 
-set $terminal "i3-sensible-terminal"
+set $terminal "urxvt"
 set $i3dir "$HOME/.config/i3"
 
 # Keys
