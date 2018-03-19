@@ -378,8 +378,8 @@ https://github.com/commercialhaskell/intero
 https://github.com/abo-abo/swiper
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key "\C-s" 'swiper)
-  (global-set-key "\M-s" 'isearch-forward)
+  (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "C-S-s") 'isearch-forward)
 #+END_SRC
 
 * Ivy
