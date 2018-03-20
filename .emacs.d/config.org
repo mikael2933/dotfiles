@@ -334,7 +334,7 @@ Manual load with (load-exwm)
     (require 'buffer-move)
     (exwm-input-set-key (kbd "s-S-<right>") 'buf-move-right)
     (exwm-input-set-key (kbd "s-S-<left>") 'buf-move-left)
-    (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up)
+    (exwm-input-set-key (kbd "s-S-<up>") 'buf-move-up))
 #+END_SRC
 
 * Ace-window
