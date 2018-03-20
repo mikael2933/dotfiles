@@ -520,3 +520,8 @@ https://www.emacswiki.org/emacs/HideShow
   (add-hook 'prog-mode-hook 'hs-minor-mode)
 #+END_SRC
 
+* All the Icons
+https://github.com/domtronn/all-the-icons.el
+#+begin_src emacs-lisp :tangle yes
+  (require 'all-the-icons)
+#+end_src
