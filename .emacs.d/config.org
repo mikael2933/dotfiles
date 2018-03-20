@@ -373,7 +373,7 @@ https://github.com/commercialhaskell/intero
 
 Requires Stack
 https://docs.haskellstack.org/en/stable/README/
-#+BEGIN_SRC Shell :tangle no
+#+BEGIN_SRC sh
 curl -sSL https://get.haskellstack.org/ | sh
 #+END_SRC
 
@@ -528,6 +528,7 @@ https://www.emacswiki.org/emacs/HideShow
 
 * All the Icons
 https://github.com/domtronn/all-the-icons.el
-#+begin_src emacs-lisp :tangle yes
+#+begin_src emacs-lisp
   (require 'all-the-icons)
 #+end_src
+
