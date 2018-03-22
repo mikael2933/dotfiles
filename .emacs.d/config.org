@@ -548,3 +548,11 @@ Currently inactive due to: https://github.com/chrisdone/structured-haskell-mode/
   ;(add-hook 'haskell-mode-hook 'structed-haskell-mode)
 #+END_SRC
 
+* hindent
+https://github.com/commercialhaskell/hindent
+
+#+BEGIN_SRC emacs-lisp
+  (require 'hindent)
+  (add-hook 'haskell-mode-hook #'hindent-mode)
+#+END_SRC
+
