@@ -533,3 +533,18 @@ https://github.com/domtronn/all-the-icons.el
   (require 'all-the-icons)
 #+end_src
 
+* Structed-haskell-mode - INACTIVE
+https://github.com/chrisdone/structured-haskell-mode
+
+*NOTE* Requires happy to install
+#+BEGIN_SRC sh
+  cabal install happy
+#+END_SRC
+
+Currently inactive due to: https://github.com/chrisdone/structured-haskell-mode/issues/156
+#+BEGIN_SRC emacs-lisp
+  ;(add-to-list 'load-path "~/.emacs.d/lib/structured-haskell-mode")
+  ;(require 'shm)
+  ;(add-hook 'haskell-mode-hook 'structed-haskell-mode)
+#+END_SRC
+
