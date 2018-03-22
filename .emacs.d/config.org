@@ -427,6 +427,7 @@ https://github.com/Malabarba/aggressive-indent-mode
 
 #+BEGIN_SRC emacs-lisp
   (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
 #+END_SRC
 
 * Expand Region
