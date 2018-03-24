@@ -205,8 +205,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen 
 #bindsym XF86AudioPrev --no-startup-id exec playerctl previous
 
 #Rofi
-bindsym $mod+d exec --no-startup-id rofi -show combi
-bindsym $mod+shift+d exec --no-startup-id gksudo -- rofi -show combi
+bindsym $mod+d exec --no-startup-id rofi -show-icons -show combi
+bindsym $mod+shift+d exec --no-startup-id gksudo -- rofi -show-icons -show combi
 
 #Miam + Slop
 bindsym XF86Search exec --no-startup-id  maim -s --format png ~/Pictures/Screenshots/Miam/$(date +%F-%T).png
