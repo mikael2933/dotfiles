@@ -556,3 +556,15 @@ https://github.com/commercialhaskell/hindent
   (add-hook 'haskell-mode-hook #'hindent-mode)
 #+END_SRC
 
+* Company GHCI
+https://github.com/orimh/company-ghci
+
+#+BEGIN_SRC emacs-lisp
+  (require 'company-ghci)
+  (push 'company-ghci company-backends)
+  (add-hook 'haskell-mode-hook 'company-mode)
+  ;;; To get completions in the REPL
+  (add-hook 'haskell-interactive-mode-hook 'company-mode)
+#+END_SRC
+
+* 

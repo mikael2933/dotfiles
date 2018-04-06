@@ -14,6 +14,7 @@
 (depends-on "cdlatex")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "company")
+(depends-on "company-ghci")
 (depends-on "counsel")
 (depends-on "counsel-projectile")
 (depends-on "dash")
