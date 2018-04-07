@@ -556,15 +556,38 @@ https://github.com/commercialhaskell/hindent
   (add-hook 'haskell-mode-hook #'hindent-mode)
 #+END_SRC
 
-* Company GHCI
-https://github.com/orimh/company-ghci
+* GHC-mod
+https://github.com/DanielG/ghc-mod
 
 #+BEGIN_SRC emacs-lisp
-  (require 'company-ghci)
-  (push 'company-ghci company-backends)
-  (add-hook 'haskell-mode-hook 'company-mode)
-  ;;; To get completions in the REPL
-  (add-hook 'haskell-interactive-mode-hook 'company-mode)
+  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+#+END_SRC
+
+* Company-mode
+https://company-mode.github.io/
+https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md#completion-with-company-ghc
+
+#+BEGIN_SRC emacs-lisp
+  (require 'company)
+  (add-to-list 'haskell-mode-hook 'company-mode)
+
+#+END_SRC
+
+* Company GHC
+https://github.com/iquiw/company-ghc
+
+*NOTE* Must be installed with cabal at the moment. Stack version does not support newer version of packages.
+#+BEGIN_SRC sh
+  cabal install ghc-mod
+#+END_SRC
+
+*OPTIONAL* Hoogle
+#+BEGIN_SRC sh
+  stack install hoogle
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-ghc)
 #+END_SRC
 
 * 
