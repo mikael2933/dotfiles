@@ -4,6 +4,16 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
+;; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Install Cask and Pallet if missing (first time installation)
+(unless (package-installed-p 'cask)
+  (package-install 'cask))
+(unless (package-installed-p 'pallet)
+  (package-install 'pallet))
+
 ;; Cask and pallet - Package Management
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
