@@ -372,10 +372,6 @@ Requires hasktags
 https://github.com/commercialhaskell/intero
 
 Requires Stack
-https://docs.haskellstack.org/en/stable/README/
-#+BEGIN_SRC sh
-curl -sSL https://get.haskellstack.org/ | sh
-#+END_SRC
 
 * Swiper
 https://github.com/abo-abo/swiper
