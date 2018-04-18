@@ -87,7 +87,7 @@ https://github.com/sabof/org-bullets
 #+END_SRC
 
 ** PowerLine
-https://github.com/jonathanchu/emacs-powerline
+https://github.com/milkypostman/powerline
 
 #+BEGIN_SRC emacs-lisp
   (require 'powerline)
