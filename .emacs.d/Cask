@@ -6,6 +6,7 @@
 (depends-on "all-the-icons-dired")
 (depends-on "all-the-icons-gnus")
 (depends-on "all-the-icons-ivy")
+(depends-on "anzu")
 (depends-on "atomic-chrome")
 (depends-on "auto-complete-sage")
 (depends-on "beacon")

@@ -586,4 +586,9 @@ https://github.com/iquiw/company-ghc
   (add-to-list 'company-backends 'company-ghc)
 #+END_SRC
 
-* 
+* Anzu
+https://github.com/syohex/emacs-anzu
+
+#+BEGIN_SRC emacs-lisp
+(global-anzu-mode +1)
+#+END_SRC
