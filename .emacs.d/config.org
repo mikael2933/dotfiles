@@ -90,8 +90,10 @@ https://github.com/sabof/org-bullets
 https://github.com/TheBB/spaceline
 
 #+BEGIN_SRC emacs-lisp
-(require 'spaceline-config)
-(spaceline-emacs-theme)
+  (require 'spaceline-config)
+  (spaceline-emacs-theme)
+  (setq powerline-default-separator nil)
+  (spaceline-compile)
 #+END_SRC
 
 * YASnippet
