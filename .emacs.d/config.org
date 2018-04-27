@@ -86,12 +86,12 @@ https://github.com/sabof/org-bullets
 (global-hl-line-mode t)
 #+END_SRC
 
-** PowerLine
-https://github.com/jonathanchu/emacs-powerline
+** Spaceline
+https://github.com/TheBB/spaceline
 
 #+BEGIN_SRC emacs-lisp
-  (require 'powerline)
-  (powerline-default-theme)
+(require 'spaceline-config)
+(spaceline-emacs-theme)
 #+END_SRC
 
 * YASnippet

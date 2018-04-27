@@ -60,6 +60,7 @@
 (depends-on "sage-shell-mode")
 (depends-on "smartparens")
 (depends-on "smex")
+(depends-on "spaceline")
 (depends-on "swiper")
 (depends-on "swiper-helm")
 (depends-on "undo-tree")
