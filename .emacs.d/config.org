@@ -86,12 +86,16 @@ https://github.com/sabof/org-bullets
 (global-hl-line-mode t)
 #+END_SRC
 
-** PowerLine
-https://github.com/milkypostman/powerline
+<<<<<<< HEAD
+** Spaceline
+https://github.com/TheBB/spaceline
+>>>>>>> bdf2509148181e668869fb46054287eba7bb8998
 
 #+BEGIN_SRC emacs-lisp
-  (require 'powerline)
-  (powerline-default-theme)
+  (require 'spaceline-config)
+  (spaceline-emacs-theme)
+  (setq powerline-default-separator nil)
+  (spaceline-compile)
 #+END_SRC
 
 * YASnippet
@@ -372,10 +376,6 @@ Requires hasktags
 https://github.com/commercialhaskell/intero
 
 Requires Stack
-https://docs.haskellstack.org/en/stable/README/
-#+BEGIN_SRC sh
-curl -sSL https://get.haskellstack.org/ | sh
-#+END_SRC
 
 * Swiper
 https://github.com/abo-abo/swiper
@@ -427,6 +427,7 @@ https://github.com/Malabarba/aggressive-indent-mode
 
 #+BEGIN_SRC emacs-lisp
   (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
 #+END_SRC
 
 * Expand Region
@@ -532,3 +533,68 @@ https://github.com/domtronn/all-the-icons.el
   (require 'all-the-icons)
 #+end_src
 
+* Structed-haskell-mode - INACTIVE
+https://github.com/chrisdone/structured-haskell-mode
+
+*NOTE* Requires happy to install
+#+BEGIN_SRC sh
+  cabal install happy
+#+END_SRC
+
+Currently inactive due to: https://github.com/chrisdone/structured-haskell-mode/issues/156
+#+BEGIN_SRC emacs-lisp
+  ;(add-to-list 'load-path "~/.emacs.d/lib/structured-haskell-mode")
+  ;(require 'shm)
+  ;(add-hook 'haskell-mode-hook 'structed-haskell-mode)
+#+END_SRC
+
+* hindent
+https://github.com/commercialhaskell/hindent
+
+#+BEGIN_SRC emacs-lisp
+  (require 'hindent)
+  (add-hook 'haskell-mode-hook #'hindent-mode)
+#+END_SRC
+
+* GHC-mod
+https://github.com/DanielG/ghc-mod
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+#+END_SRC
+
+* Company-mode
+https://company-mode.github.io/
+https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md#completion-with-company-ghc
+
+#+BEGIN_SRC emacs-lisp
+  (require 'company)
+  (add-to-list 'haskell-mode-hook 'company-mode)
+
+#+END_SRC
+
+* Company GHC
+https://github.com/iquiw/company-ghc
+
+*NOTE* Must be installed with cabal at the moment. Stack version does not support newer version of packages.
+#+BEGIN_SRC sh
+  cabal install ghc-mod
+#+END_SRC
+
+*OPTIONAL* Hoogle
+#+BEGIN_SRC sh
+  stack install hoogle
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-ghc)
+#+END_SRC
+
+* Anzu
+https://github.com/syohex/emacs-anzu
+
+#+BEGIN_SRC emacs-lisp
+(global-anzu-mode +1)
+#+END_SRC
+
+* 
