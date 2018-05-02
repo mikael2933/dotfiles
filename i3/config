@@ -170,7 +170,7 @@ exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/
 exec --no-startup-id redshift-gtk -l 55.641910:12.087845
 
 #Compton
-exec --no-startup-id compton -i 0.8 --backend glx --vsync opengl-swc --no-fading-openclose 
+exec --no-startup-id compton --backend glx --vsync opengl-swc --no-fading-openclose 
 
 #SSH-Agent
 exec --no-startup-id eval "$(ssh-agent -s)"
