@@ -32,7 +32,7 @@
  '(custom-enabled-themes (quote (custom-manoj-dark)))
  '(custom-safe-themes
    (quote
-    ("80c7fca3c842698d3c89e39cead72458776db1ad1f1cb33cb06e06e3dd7fb8b8" default)))
+    ("ff798ae7e7f84b2260042c27978f52c996830132961cae618d917b017509cc92" "80c7fca3c842698d3c89e39cead72458776db1ad1f1cb33cb06e06e3dd7fb8b8" default)))
  '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
  '(electric-pair-mode t)
@@ -65,6 +65,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(powerline-active1 ((t (:inherit mode-line :background "grey17" :foreground "white" :height 1.1))))
- '(powerline-active2 ((t (:inherit mode-line :background "grey40" :foreground "white" :height 1.1)))))
+ '(powerline-active2 ((t (:inherit mode-line :background "grey40" :foreground "white" :height 1.1))))
+ '(rainbow-delimiters-depth-1-face ((t (:inherit rainbow-delimiters-base-face :foreground "pale green"))))
+ '(rainbow-delimiters-depth-2-face ((t (:inherit rainbow-delimiters-base-face :foreground "cornflower blue"))))
+ '(rainbow-delimiters-depth-3-face ((t (:inherit rainbow-delimiters-base-face :foreground "light goldenrod"))))
+ '(rainbow-delimiters-depth-4-face ((t (:inherit rainbow-delimiters-base-face :foreground "tomato")))))
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
