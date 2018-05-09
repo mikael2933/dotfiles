@@ -595,4 +595,12 @@ https://github.com/syohex/emacs-anzu
 (global-anzu-mode +1)
 #+END_SRC
 
+* Rainbow Delimiters
+https://www.emacswiki.org/emacs/RainbowDelimiters
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+#+END_SRC
+
 * 
