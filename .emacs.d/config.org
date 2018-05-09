@@ -86,10 +86,8 @@ https://github.com/sabof/org-bullets
 (global-hl-line-mode t)
 #+END_SRC
 
-<<<<<<< HEAD
 ** Spaceline
 https://github.com/TheBB/spaceline
->>>>>>> bdf2509148181e668869fb46054287eba7bb8998
 
 #+BEGIN_SRC emacs-lisp
   (require 'spaceline-config)
