@@ -2,4 +2,4 @@
 # name: definite integral
 # key: \int
 # --
-\int{$3}^{$1}_{$2}
+\int^{$1}_{$2} $3 \,dx
