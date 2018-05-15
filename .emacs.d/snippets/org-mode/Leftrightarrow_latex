@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Leftrightarrow_latex
+# key: \Lra
+# --
+\Leftrightarrow

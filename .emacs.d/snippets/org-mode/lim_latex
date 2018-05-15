@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lim_latex
+# key: \lim
+# --
+\lim_{$1}

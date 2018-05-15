@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: R_symbol_latex
+# key: \R
+# --
+\mathbb{R}

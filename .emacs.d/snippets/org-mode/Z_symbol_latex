@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Z_symbol_latex
+# key: \Z
+# --
+\mathbb{Z}
