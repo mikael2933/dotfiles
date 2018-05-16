@@ -709,7 +709,11 @@ jarring angry fruit salad look to reduce eye fatigue.")
  '(rainbow-delimiters-depth-1-face ((t (:inherit rainbow-delimiters-base-face :foreground "pale green"))))
  '(rainbow-delimiters-depth-2-face ((t (:inherit rainbow-delimiters-base-face :foreground "cornflower blue"))))
  '(rainbow-delimiters-depth-3-face ((t (:inherit rainbow-delimiters-base-face :foreground "light goldenrod"))))
- '(rainbow-delimiters-depth-4-face ((t (:inherit rainbow-delimiters-base-face :foreground "tomato")))))
+ '(rainbow-delimiters-depth-4-face ((t (:inherit rainbow-delimiters-base-face :foreground "tomato"))))
+
+ ;; Powerline faces
+ '(powerline-active1 ((t (:inherit mode-line :background "grey17" :foreground "white" :height 1.1))))
+ '(powerline-active2 ((t (:inherit mode-line :background "grey40" :foreground "white" :height 1.1)))))
 
 (provide-theme 'custom-manoj-dark)
 
