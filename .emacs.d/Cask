@@ -42,6 +42,7 @@
 (depends-on "iedit")
 (depends-on "intero")
 (depends-on "ivy")
+(depends-on "leuven-theme")
 (depends-on "linum-relative")
 (depends-on "magit")
 (depends-on "magit-popup")
