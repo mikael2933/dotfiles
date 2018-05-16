@@ -29,10 +29,10 @@
  '(anzu-cons-mode-line-p nil)
  '(company-ghc-show-info t)
  '(counsel-projectile-mode t nil (counsel-projectile))
- '(custom-enabled-themes (quote (custom-manoj-dark)))
+ '(custom-enabled-themes (quote (leuven)))
  '(custom-safe-themes
    (quote
-    ("ff798ae7e7f84b2260042c27978f52c996830132961cae618d917b017509cc92" default)))
+    ("9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" "ff798ae7e7f84b2260042c27978f52c996830132961cae618d917b017509cc92" default)))
  '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
  '(electric-pair-mode t)
@@ -49,6 +49,7 @@
  '(intero-global-mode t nil (intero))
  '(max-lisp-eval-depth 10000)
  '(max-specpdl-size 100000)
+ '(org-fontify-whole-heading-line t)
  '(org-format-latex-options
    (quote
     (:foreground default :background default :scale 1.5 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
