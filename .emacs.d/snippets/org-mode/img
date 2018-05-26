@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: img
+# key: img_
+# --
+#+ATTR_LATEX: :placement [H]
+#+CAPTION: $2
+[[$1]]
