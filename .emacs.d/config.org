@@ -609,4 +609,11 @@ https://www.emacswiki.org/emacs/RainbowDelimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 #+END_SRC
 
+* Org-ref
+https://github.com/jkitchin/org-ref
+
+#+BEGIN_SRC emacs-lisp
+  (require 'org-ref)
+#+END_SRC
+
 * 
