@@ -199,6 +199,11 @@ https://github.com/coldnew/linum-relative
 #+END_SRC
 
 * Helm
+https://github.com/emacs-helm/helm/wiki#install
+#+BEGIN_SRC emacs-lisp
+(require 'helm-config)
+#+END_SRC
+
 ** Find files
 Set C-h C-f
 
