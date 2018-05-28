@@ -62,6 +62,7 @@
  '(powerline-default-separator nil)
  '(projectile-completion-system (quote ivy))
  '(ring-bell-function (quote ignore))
+ '(sgml-basic-offset 4)
  '(show-smartparens-global-mode t)
  '(vc-follow-symlinks t)
  '(visible-bell t))
