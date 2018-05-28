@@ -51,6 +51,7 @@
 (depends-on "org")
 (depends-on "org-bullets")
 (depends-on "org-ref")
+(depends-on "ox-hugo")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "powerline")
