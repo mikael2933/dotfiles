@@ -1,4 +1,3 @@
-
 #+TITLE: Emacs configuration
 #+AUTHOR: Mikael Zhang
 
@@ -467,19 +466,6 @@ https://github.com/bbatsov/projectile
 * Counsel Projectile
 https://github.com/ericdanan/counsel-projectile
 
-* Dump-jump - Manual Load
-https://github.com/jacktasia/dumb-jump
-#+BEGIN_SRC emacs-lisp
-  (defun load-dump-jump()
-    (interactive)
-    (dumb-jump-mode)
-    (global-set-key (kbd "M-g o") dumb-jump-go-other-window)
-    (global-set-key (kbd "M-g j") dumb-jump-go)
-    (global-set-key (kbd "M-g i") dumb-jump-go-prompt) 
-    (global-set-key (kbd "M-g x") dumb-jump-go-prefer-external)  
-    (global-set-key (kbd "M-g z") dumb-jump-go-prefer-external-other-window))
-#+END_SRC
-
 * IBuffer
 https://www.emacswiki.org/emacs/IbufferMode
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
@@ -514,14 +500,6 @@ https://github.com/Fuco1/smartparens
   (require 'smartparens-config)
 #+END_SRC
 
-* OneKey - CAN'T GET TO WORK
-https://www.emacswiki.org/emacs/OneKey
-
-#+BEGIN_SRC emacs-lisp
-  ;(require 'one-key)
-  ;(global-set-key (kbd "<f10>") 'one-key-open-associated-menu-set)
-#+END_SRC
-
 * Flycheck
 http://www.flycheck.org/en/latest/
 
@@ -541,21 +519,6 @@ https://github.com/domtronn/all-the-icons.el
 #+begin_src emacs-lisp
   (require 'all-the-icons)
 #+end_src
-
-* Structed-haskell-mode - INACTIVE
-https://github.com/chrisdone/structured-haskell-mode
-
-*NOTE* Requires happy to install
-#+BEGIN_SRC sh
-  cabal install happy
-#+END_SRC
-
-Currently inactive due to: https://github.com/chrisdone/structured-haskell-mode/issues/156
-#+BEGIN_SRC emacs-lisp
-  ;(add-to-list 'load-path "~/.emacs.d/lib/structured-haskell-mode")
-  ;(require 'shm)
-  ;(add-hook 'haskell-mode-hook 'structed-haskell-mode)
-#+END_SRC
 
 * hindent
 https://github.com/commercialhaskell/hindent
