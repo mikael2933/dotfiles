@@ -592,4 +592,10 @@ https://github.com/kaushalmodi/ox-hugo
   (require 'ox-hugo))
 #+END_SRC
 
-** 
+* helm-org-rifle 
+https://github.com/alphapapa/helm-org-rifle
+
+#+BEGIN_SRC emacs-lisp
+(require 'helm-org-rifle)
+#+END_SRC
+* 
