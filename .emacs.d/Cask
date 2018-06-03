@@ -29,6 +29,7 @@
 (depends-on "god-mode")
 (depends-on "helm")
 (depends-on "helm-core")
+(depends-on "helm-org-rifle")
 (depends-on "helm-sage")
 (depends-on "ibuffer-git")
 (depends-on "iedit")

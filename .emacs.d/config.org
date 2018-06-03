@@ -530,8 +530,6 @@ https://github.com/kaushalmodi/ox-hugo
 (with-eval-after-load 'ox
   (require 'ox-hugo))
 #+END_SRC
-
-** 
 * Haskell-ide-engine / lsp-haskell
 https://github.com/haskell/haskell-ide-engine
 https://github.com/emacs-lsp/lsp-haskell
@@ -544,3 +542,10 @@ https://github.com/emacs-lsp/lsp-haskell
 (add-hook 'haskell-mode-hook #'lsp-haskell-enable)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 #+END_SRC
+* helm-org-rifle 
+https://github.com/alphapapa/helm-org-rifle
+
+#+BEGIN_SRC emacs-lisp
+(require 'helm-org-rifle)
+#+END_SRC
+* 
