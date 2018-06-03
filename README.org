@@ -112,35 +112,14 @@ This section is dedicated to describing how to setup the Haskell development env
 # pacman -S ghc stack
 #+END_SRC
 
-** Hasktags, hindent, ghc-mod, hoogle
-For my configurations, I'm using [[https://hackage.haskell.org/package/hasktags][hasktags]], [[https://github.com/commercialhaskell/hindent][hindent]], [[https://github.com/DanielG/ghc-mod][ghc-mod]] and [[https://hackage.haskell.org/package/hoogle][hoogle]] (for ghc-mod). +Install hasktags, hindent and hoogle using stack.+
-
-#+BEGIN_COMMENT
-#+BEGIN_SRC sh
-$ stack install hasktags hindent hoogle ghc-mod
-#+END_SRC
-#+END_COMMENT
-
-ghc-mod does not currently support the latest version of Cabal. I would therefore recommend not installing hoogle or ghc-mod (unless needed). You can still downgrade other packages if you really need and want to.
-
-#+BEGIN_SRC sh
-$ stack install hasktags hindent
-#+END_SRC
-
-** .hindent.yaml - configuration for hindent
-The .hindent.yaml is a configuration file for hindent. This can be copied to the root of your project's directory or to your home directory (although I have never had any success with the latter).
-
-Copy to project root directory.
-
-#+BEGIN_SRC sh
-$ cp $DOTFILES/.hindent.yaml $PROJECT_DIR
-#+END_SRC
-
 ** Haskell-ide-engine
-I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. The lsp packages are already set up in the config.org. Install haskell-ide-engine and make sure it's in your path. It's available in the AUR.
+I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. Install haskell-ide-engine and make sure it's in your path. 
 
 #+BEGIN_SRC sh
-pacaur -S haskell-ide-engine-git
+$ git clone https://github.com/haskell/haskell-ide-engine --recursive
+$ cd haskell-ide-engine
+$ stack --stack-yaml=stack-X.Y.Z.yaml install #replace X.Y.Z with ghc version 
 #+END_SRC
 
+Haskell-ide-engine is available in the AUR, I've found building from source much more reliable.
 
