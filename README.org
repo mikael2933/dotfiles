@@ -8,7 +8,7 @@ After cloning the git.
 This is not necessary, but to make things easier to explain, we will be using a variable to decribe the directory of the that you git cloned into.
 
 #+BEGIN_SRC sh
-$ export $DOTFILES = <dotfiles_dir>
+$ export DOTFILES = <dotfiles_dir>
 #+END_SRC
 
 * .zshenv - Environment Variables
