@@ -27,7 +27,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-cons-mode-line-p nil)
- '(company-ghc-show-info t)
  '(counsel-projectile-mode t nil (counsel-projectile))
  '(custom-enabled-themes (quote (custom-leuven)))
  '(custom-safe-themes
@@ -38,16 +37,7 @@
  '(dumb-jump-selector (quote ivy))
  '(electric-pair-mode t)
  '(font-use-system-font t)
- '(haskell-indentation-layout-offset 4)
- '(haskell-indentation-left-offset 4)
- '(haskell-indentation-starter-offset 4)
- '(haskell-indentation-where-post-offset 4)
- '(haskell-indentation-where-pre-offset 4)
- '(haskell-mode-hook nil t)
- '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t)
  '(inhibit-startup-screen t)
- '(intero-global-mode t nil (intero))
  '(max-lisp-eval-depth 10000)
  '(max-specpdl-size 100000)
  '(org-fontify-whole-heading-line t)
@@ -58,7 +48,7 @@
  '(org-highlight-latex-and-related (quote (latex script entities)))
  '(package-selected-packages
    (quote
-    (ox-hugo org-ref leuven-theme spaceline anzu company-ghc ghc all-the-icons-ivy all-the-icons-dired all-the-icons-gnus git-timemachine ghub helm helm-core ivy yasnippet smartparens powerline ibuffer-git dumb-jump counsel-projectile projectile git-gutter iedit expand-region aggressive-indent undo-tree ox-reveal ace-window swiper-helm atomic-chrome intero smex multiple-cursors buffer-move ## god-mode haskell-mode counsel rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage)))
+    (ox-hugo org-ref leuven-theme spaceline anzu all-the-icons-ivy all-the-icons-dired all-the-icons-gnus git-timemachine ghub helm helm-core ivy yasnippet smartparens powerline ibuffer-git dumb-jump counsel-projectile projectile git-gutter iedit expand-region aggressive-indent undo-tree ox-reveal ace-window swiper-helm atomic-chrome smex multiple-cursors buffer-move ## god-mode counsel rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage)))
  '(powerline-default-separator nil)
  '(projectile-completion-system (quote ivy))
  '(ring-bell-function (quote ignore))

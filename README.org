@@ -136,3 +136,11 @@ Copy to project root directory.
 $ cp $DOTFILES/.hindent.yaml $PROJECT_DIR
 #+END_SRC
 
+** Haskell-ide-engine
+I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. The lsp packages are already set up in the config.org. Install haskell-ide-engine and make sure it's in your path. It's available in the AUR.
+
+#+BEGIN_SRC sh
+pacaur -S haskell-ide-engine-git
+#+END_SRC
+
+
