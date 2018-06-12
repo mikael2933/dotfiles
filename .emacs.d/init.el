@@ -27,7 +27,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-cons-mode-line-p nil)
- '(company-ghc-show-info t)
  '(counsel-projectile-mode t nil (counsel-projectile))
  '(custom-enabled-themes (quote (custom-leuven)))
  '(custom-safe-themes
@@ -38,16 +37,7 @@
  '(dumb-jump-selector (quote ivy))
  '(electric-pair-mode t)
  '(font-use-system-font t)
- '(haskell-indentation-layout-offset 4)
- '(haskell-indentation-left-offset 4)
- '(haskell-indentation-starter-offset 4)
- '(haskell-indentation-where-post-offset 4)
- '(haskell-indentation-where-pre-offset 4)
- '(haskell-mode-hook nil t)
- '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t)
  '(inhibit-startup-screen t)
- '(intero-global-mode t nil (intero))
  '(max-lisp-eval-depth 10000)
  '(max-specpdl-size 100000)
  '(org-fontify-whole-heading-line t)

@@ -366,25 +366,6 @@ https://github.com/magnars/multiple-cursors.el
 (global-set-key (kbd "C-;") 'mc/mark-all-like-this)
 #+END_SRC
 
-* Haskell-mode
-http://haskell.github.io/haskell-mode/manual/latest/Editing-Haskell-Code.html#Editing-Haskell-Code
-
-** Haskell-navigate-import
-Bind to f8
-#+BEGIN_SRC emacs-lisp
-  (eval-after-load 'haskell-mode
-    '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
-#+END_SRC
-
-** Haskell tags
-https://github.com/MarcWeber/hasktags
-Requires hasktags
-
-* Intero
-https://github.com/commercialhaskell/intero
-
-Requires Stack
-
 * Swiper
 https://github.com/abo-abo/swiper
 
@@ -520,48 +501,6 @@ https://github.com/domtronn/all-the-icons.el
   (require 'all-the-icons)
 #+end_src
 
-* hindent
-https://github.com/commercialhaskell/hindent
-
-#+BEGIN_SRC emacs-lisp
-  (require 'hindent)
-  (add-hook 'haskell-mode-hook #'hindent-mode)
-#+END_SRC
-
-* GHC-mod
-https://github.com/DanielG/ghc-mod
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-#+END_SRC
-
-* Company-mode
-https://company-mode.github.io/
-https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md#completion-with-company-ghc
-
-#+BEGIN_SRC emacs-lisp
-  (require 'company)
-  (add-to-list 'haskell-mode-hook 'company-mode)
-
-#+END_SRC
-
-* Company GHC
-https://github.com/iquiw/company-ghc
-
-*NOTE* Must be installed with cabal at the moment. Stack version does not support newer version of packages.
-#+BEGIN_SRC sh
-  cabal install ghc-mod
-#+END_SRC
-
-*OPTIONAL* Hoogle
-#+BEGIN_SRC sh
-  stack install hoogle
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'company-backends 'company-ghc)
-#+END_SRC
-
 * Anzu
 https://github.com/syohex/emacs-anzu
 
@@ -591,7 +530,18 @@ https://github.com/kaushalmodi/ox-hugo
 (with-eval-after-load 'ox
   (require 'ox-hugo))
 #+END_SRC
+* Haskell-ide-engine / lsp-haskell
+https://github.com/haskell/haskell-ide-engine
+https://github.com/emacs-lsp/lsp-haskell
 
+#+BEGIN_SRC emacs-lisp
+(require 'lsp-ui)
+(require 'lsp-haskell)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(add-hook 'haskell-mode-hook #'lsp-haskell-enable)
+(add-hook 'haskell-mode-hook 'flycheck-mode)
+#+END_SRC
 * helm-org-rifle 
 https://github.com/alphapapa/helm-org-rifle
 
