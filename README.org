@@ -1,7 +1,7 @@
 #+TITLE: Setting up dotfiles
 #+Author: multimikael
 
-This is guide is mostly for myself. Many of the places in the guide I will be using symbolic links as it makes it easier for me to maintain my git repository. You can replace these with copy commands if you want. Also, I will be using Arch. The commands will mostly be the same on other distrubutions, mostly just small differences packages and their name. 
+This is guide is mostly for myself. Many of the places in the guide I will be using symbolic links as it makes it easier for me to maintain my git repository. You can replace these with copy commands if you want. Also, I will be using Arch. The commands will mostly be the same on other distrubutions, mostly just small differences in packages and their name. 
 
 * Path to dotfiles git
 After cloning the git.
@@ -40,7 +40,7 @@ $ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 .emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
 
 #+BEGIN_SRC sh
-cp -r $DOTFILES/.emacs.d ~
+$ cp -r $DOTFILES/.emacs.d ~
 #+END_SRC
 
 I like to create symbolic links to files in the git repository.
@@ -101,7 +101,7 @@ On i3, I'm using Dunst for notifications. This is configuration is /very/ simpli
 
 Copy or link dunst configuration directory.
 
-#+BEGIN_SRC 
+#+BEGIN_SRC sh
 $ ln -s $DOTFILES/dunst ~/.config/dunst
 #+END_SRC
 
