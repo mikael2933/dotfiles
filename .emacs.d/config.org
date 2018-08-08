@@ -548,4 +548,13 @@ https://github.com/alphapapa/helm-org-rifle
 #+BEGIN_SRC emacs-lisp
 (require 'helm-org-rifle)
 #+END_SRC
+* lsp-python
+https://github.com/emacs-lsp/lsp-python
+
+#+BEGIN_SRC emacs-lisp
+(require 'lsp-mode)
+(require 'lsp-python)
+(add-hook 'python-mode-hook #'lsp-python-enable)
+#+END_SRC
+
 * 

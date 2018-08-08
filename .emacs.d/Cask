@@ -37,6 +37,7 @@
 (depends-on "leuven-theme")
 (depends-on "linum-relative")
 (depends-on "lsp-haskell")
+(depends-on "lsp-python")
 (depends-on "lsp-ui")
 (depends-on "magit")
 (depends-on "magit-popup")
