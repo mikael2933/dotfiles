@@ -8,7 +8,7 @@ After cloning the git.
 This is not necessary, but to make things easier to explain, we will be using a variable to decribe the directory of the that you git cloned into.
 
 #+BEGIN_SRC sh
-$ export DOTFILES = <dotfiles_dir>
+$ export DOTFILES=<dotfiles_dir>
 #+END_SRC
 
 * .zshenv - Environment Variables
@@ -59,15 +59,15 @@ $ ln -s $DOTFILES/.emacs.d/themes
 ** Installing packages
 First time you open Emacs, you will get some errors. My Emacs setup uses pallet, although it use-packages might be better (and I might move to that in the future). Install packages from Cask file:
 
-#+BEGIN_SRC html
-<kbd>M-x pallet-install RET</kbd>
+#+BEGIN_SRC emacs
+M-x pallet-install RET
 #+END_SRC
 
 
 The installation will get interrupted. This will display an error, ignore that, and run it again:
 
-#+BEGIN_SRC html
-</kbd>M-x pallet-install RET</kbd>
+#+BEGIN_SRC emacs
+M-x pallet-install RET
 #+END_SRC
 
 ** Emacsclient
