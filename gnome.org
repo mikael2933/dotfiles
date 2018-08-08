@@ -1,0 +1,11 @@
+#+TITLE: Gnome setup
+
+* Appearance
+Icons: [[https://www.deviantart.com/tiheum/art/Faience-icon-theme-255099649][Faience-Azur]]
+
+* Extensions
+- Topicons [plus]
+- Mediaplayer player indicator
+- Flippery move clock
+- Dash to dock
+- Better volume indicator
