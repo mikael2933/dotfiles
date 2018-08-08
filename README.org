@@ -135,3 +135,9 @@ Install python-language-server through pip.
 #+BEGIN_SRC sh
 # pip install python-language-server
 #+END_SRC
+* ZSH timestamps
+Inspired by the command from [[https://stackoverflow.com/questions/40076573/adding-timestamp-to-each-line-on-zsh][a stackoverflow]]. Add this line to the bottom of .zshrc
+
+#+BEGIN_SRC sh
+PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
+#+END_SRC
