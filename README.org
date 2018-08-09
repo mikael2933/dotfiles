@@ -1,143 +1,141 @@
-#+TITLE: Setting up dotfiles
-#+Author: multimikael
-
+* Setting up dotfiles
 This is guide is mostly for myself. Many of the places in the guide I will be using symbolic links as it makes it easier for me to maintain my git repository. You can replace these with copy commands if you want. Also, I will be using Arch. The commands will mostly be the same on other distrubutions, mostly just small differences in packages and their name. 
 
-* Path to dotfiles git
-After cloning the git.
-This is not necessary, but to make things easier to explain, we will be using a variable to decribe the directory of the that you git cloned into.
+** Path to dotfiles git
+ After cloning the git.
+ This is not necessary, but to make things easier to explain, we will be using a variable to decribe the directory of the that you git cloned into.
 
-#+BEGIN_SRC sh
-$ export DOTFILES=<dotfiles_dir>
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ export DOTFILES=<dotfiles_dir>
+ #+END_SRC
 
-* .zshenv - Environment Variables
-Because I'm using the same configuration on most of my machines, I like create a symbolic link for .zshenv. *NOTE* this will only be executed if you use Z shell, if you use Bash, you should use [[https://wiki.archlinux.org/index.php/bash#Configuration_files][an equivalent]]. This file contains environment variables.
+** .zshenv - Environment Variables
+ Because I'm using the same configuration on most of my machines, I like create a symbolic link for .zshenv. *NOTE* this will only be executed if you use Z shell, if you use Bash, you should use [[https://wiki.archlinux.org/index.php/bash#Configuration_files][an equivalent]]. This file contains environment variables.
 
-#+BEGIN_SRC sh
-$ ln -s $DOTFILES/.zshenv ~/.zshenv
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ ln -s $DOTFILES/.zshenv ~/.zshenv
+ #+END_SRC
 
-* .Xresources - URXVT, Cursor Theme
-The .Xresources contains my preferred color theme for urxvt (terminal) and also my preferred cursor theme for my laptop. I can't remember where I got the colors from, sorry for no credit. I like a bigger and more wide cursor theme on my little laptop screen. Here I'm using Breeze (yes, kde, deal with it).
+** .Xresources - URXVT, Cursor Theme
+ The .Xresources contains my preferred color theme for urxvt (terminal) and also my preferred cursor theme for my laptop. I can't remember where I got the colors from, sorry for no credit. I like a bigger and more wide cursor theme on my little laptop screen. Here I'm using Breeze (yes, kde, deal with it).
 
-Copy the .Xresources file to your home directory.
+ Copy the .Xresources file to your home directory.
 
-#+BEGIN_SRC sh
-$ cp $DOTFILES/.Xresources ~
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ cp $DOTFILES/.Xresources ~
+ #+END_SRC
 
-* Emacs
-** Prerequisites
+** Emacs
+*** Prerequisites
 
-Start by installing [[https://github.com/cask/cask][Cask]]. *NOTE* this requires you to add the cask folder to your $PATH. This is already done if you are using my .zshenv file.
+ Start by installing [[https://github.com/cask/cask][Cask]]. *NOTE* this requires you to add the cask folder to your $PATH. This is already done if you are using my .zshenv file.
 
-#+BEGIN_SRC sh
-$ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+ #+END_SRC
 
-** Copy and linking .emacs.d
-.emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
+*** Copy and linking .emacs.d
+ .emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
 
-#+BEGIN_SRC sh
-$ cp -r $DOTFILES/.emacs.d ~
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ cp -r $DOTFILES/.emacs.d ~
+ #+END_SRC
 
-I like to create symbolic links to files in the git repository.
+ I like to create symbolic links to files in the git repository.
 
-#+BEGIN_SRC sh
-$ cd ~/.emacs.d
-$ rm -rf config.org init.el Cask lib snippets themes
-$ ln -s $DOTFILES/.emacs.d/config.org
-$ ln -s $DOTFILES/.emacs.d/init.el
-$ ln -s $DOTFILES/.emacs.d/Cask
-$ ln -s $DOTFILES/.emacs.d/lib
-$ ln -s $DOTFILES/.emacs.d/snippets
-$ ln -s $DOTFILES/.emacs.d/themes
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ cd ~/.emacs.d
+ $ rm -rf config.org init.el Cask lib snippets themes
+ $ ln -s $DOTFILES/.emacs.d/config.org
+ $ ln -s $DOTFILES/.emacs.d/init.el
+ $ ln -s $DOTFILES/.emacs.d/Cask
+ $ ln -s $DOTFILES/.emacs.d/lib
+ $ ln -s $DOTFILES/.emacs.d/snippets
+ $ ln -s $DOTFILES/.emacs.d/themes
+ #+END_SRC
 
-** Installing packages
-First time you open Emacs, you will get some errors. My Emacs setup uses pallet, although it use-packages might be better (and I might move to that in the future). Install packages from Cask file:
+*** Installing packages
+ First time you open Emacs, you will get some errors. My Emacs setup uses pallet, although it use-packages might be better (and I might move to that in the future). Install packages from Cask file:
 
-#+BEGIN_SRC emacs
-M-x pallet-install RET
-#+END_SRC
+ #+BEGIN_SRC emacs
+ M-x pallet-install RET
+ #+END_SRC
 
 
-The installation will get interrupted. This will display an error, ignore that, and run it again:
+ The installation will get interrupted. This will display an error, ignore that, and run it again:
 
-#+BEGIN_SRC emacs
-M-x pallet-install RET
-#+END_SRC
+ #+BEGIN_SRC emacs
+ M-x pallet-install RET
+ #+END_SRC
 
-** Emacsclient
-To start [[https://www.emacswiki.org/emacs/EmacsClient][emacsclient]] it is practical use a .desktop entry. This will add emacsclient your application menu.
+*** Emacsclient
+ To start [[https://www.emacswiki.org/emacs/EmacsClient][emacsclient]] it is practical use a .desktop entry. This will add emacsclient your application menu.
 
-#+BEGIN_SRC sh
-# cp $DOTFILES/emacsclient.desktop /usr/share/applications
-#+END_SRC
+ #+BEGIN_SRC sh
+ # cp $DOTFILES/emacsclient.desktop /usr/share/applications
+ #+END_SRC
 
-* Emacs X Window Manager - WIP
-* i3 Window Manager
-I use the i3 window manager on most of my machines. i3 is a tiling window manager, and I would recommend reading about it *before* installing it. The installation is pretty simple. Copy or link the config file inside the i3 directory.
+** Emacs X Window Manager - WIP
+** i3 Window Manager
+ I use the i3 window manager on most of my machines. i3 is a tiling window manager, and I would recommend reading about it *before* installing it. The installation is pretty simple. Copy or link the config file inside the i3 directory.
 
-#+BEGIN_SRC sh
-$ ln -s $DOTFILES/i3/config ~/.config/i3/config 
-#+END_SRC
+ #+BEGIN_SRC sh
+ $ ln -s $DOTFILES/i3/config ~/.config/i3/config 
+ #+END_SRC
 
-*NOTE* This configuration is using a lot of other programs. You should at least install Polybar. This git repository also contains my configurations for both Polybar and Dunst, which I recommend installing along with the i3 configuration.
+ *NOTE* This configuration is using a lot of other programs. You should at least install Polybar. This git repository also contains my configurations for both Polybar and Dunst, which I recommend installing along with the i3 configuration.
+ 
+** Polybar - Use for i3
+ For my i3 configuration I'm using Polybar. i3 is not required, but I haven't tested my configurations on anything else. The battery module contains two batteries, and is compatible with my dual battery laptop (ThinkPad X250). I have not tested it on any other laptop. 
 
-* Polybar - Use for i3
-For my i3 configuration I'm using Polybar. i3 is not required, but I haven't tested my configurations on anything else. The battery module contains two batteries, and is compatible with my dual battery laptop (ThinkPad X250). I have not tested it on any other laptop. 
+ Copy or link the Polybar folder to config directory.
 
-Copy or link the Polybar folder to config directory.
+ #+BEGIN_SRC sh
+ $ ln -s $DOTFILES/polybar ~/.config/polybar
+ #+END_SRC
 
-#+BEGIN_SRC sh
-$ ln -s $DOTFILES/polybar ~/.config/polybar
-#+END_SRC
+** Dunst - Use for i3
+ On i3, I'm using Dunst for notifications. This is configuration is /very/ simplistic. 
 
-* Dunst - Use for i3
-On i3, I'm using Dunst for notifications. This is configuration is /very/ simplistic. 
+ Copy or link dunst configuration directory.
 
-Copy or link dunst configuration directory.
+ #+BEGIN_SRC sh
+ $ ln -s $DOTFILES/dunst ~/.config/dunst
+ #+END_SRC
 
-#+BEGIN_SRC sh
-$ ln -s $DOTFILES/dunst ~/.config/dunst
-#+END_SRC
+** Development Environment for Haskell
+ This section is dedicated to describing how to setup the Haskell development environment. Start by downloading the GHC and Stack. 
 
-* Development Environment for Haskell
-This section is dedicated to describing how to setup the Haskell development environment. Start by downloading the GHC and Stack. 
+ #+BEGIN_SRC sh
+ # pacman -S ghc stack
+ #+END_SRC
 
-#+BEGIN_SRC sh
-# pacman -S ghc stack
-#+END_SRC
+*** Haskell-ide-engine
+ I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. Install haskell-ide-engine and make sure it's in your path. 
 
-** Haskell-ide-engine
-I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. Install haskell-ide-engine and make sure it's in your path. 
+ #+BEGIN_SRC sh
+ $ git clone https://github.com/haskell/haskell-ide-engine --recursive
+ $ cd haskell-ide-engine
+ $ stack --stack-yaml=stack-X.Y.Z.yaml install #replace X.Y.Z with ghc version 
+ #+END_SRC
 
-#+BEGIN_SRC sh
-$ git clone https://github.com/haskell/haskell-ide-engine --recursive
-$ cd haskell-ide-engine
-$ stack --stack-yaml=stack-X.Y.Z.yaml install #replace X.Y.Z with ghc version 
-#+END_SRC
+ Haskell-ide-engine is available in the AUR, I've found building from source much more reliable.
 
-Haskell-ide-engine is available in the AUR, I've found building from source much more reliable.
+** Development Environment for Python
+ I've started using the [[https://github.com/palantir/python-language-server][Python LSP]].Start by downloading Python and Pip.
 
-* Development Environment for Python
-I've started using the [[https://github.com/palantir/python-language-server][Python LSP]].Start by downloading Python and Pip.
+ #+BEGIN_SRC sh
+ # pacman -S python python-pip
+ #+END_SRC
 
-#+BEGIN_SRC sh
-# pacman -S python python-pip
-#+END_SRC
+ Install python-language-server through pip.
 
-Install python-language-server through pip.
+ #+BEGIN_SRC sh
+ # pip install python-language-server
+ #+END_SRC
+** ZSH timestamps
+ Inspired by the command from [[https://stackoverflow.com/questions/40076573/adding-timestamp-to-each-line-on-zsh][a stackoverflow]]. Add this line to the bottom of .zshrc
 
-#+BEGIN_SRC sh
-# pip install python-language-server
-#+END_SRC
-* ZSH timestamps
-Inspired by the command from [[https://stackoverflow.com/questions/40076573/adding-timestamp-to-each-line-on-zsh][a stackoverflow]]. Add this line to the bottom of .zshrc
-
-#+BEGIN_SRC sh
-PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
-#+END_SRC
+ #+BEGIN_SRC sh
+ PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
+ #+END_SRC
