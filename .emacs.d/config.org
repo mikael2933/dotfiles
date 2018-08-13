@@ -166,20 +166,8 @@ https://github.com/rakanalh/emacs-dashboard
 
 #+BEGIN_SRC emacs-lisp
   (require 'dashboard)
-  ;(dashboard-setup-startup-hook)
-
-  ;; Fix emacsclient. Switch on new frame
-  ;; Don't switch to dashboard if trying to open file
-  ;(defun switch-to-dashboard(frame)
-  ;  (with-selected-frame frame
-  ;    (run-with-timer 0.1 nil (lambda()
-  ;                              (switch-to-buffer "*dashboard*")))))
-  ;
-  ;(if (< (length command-line-args) 2 )
-  ;    (add-hook 'after-make-frame-functions 'switch-to-dashboard))
-
-  ;;(setq dashboard-items '((recents  . 5)
-  ;;                        (bookmarks . 5)))
+  (dashboard-setup-startup-hook)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   (setq dashboard-items '((recents . 5)))
 #+END_SRC
 
