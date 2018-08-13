@@ -27,7 +27,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-cons-mode-line-p nil)
- '(counsel-projectile-mode t nil (counsel-projectile))
  '(custom-enabled-themes (quote (custom-leuven)))
  '(custom-safe-themes
    (quote
