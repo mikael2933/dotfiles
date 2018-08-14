@@ -15,7 +15,7 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
  #+BEGIN_SRC sh
  $ ln -s $DOTFILES/.zshenv ~/.zshenv
  #+END_SRC
-
+ 
 ** .Xresources - URXVT, Cursor Theme
  The .Xresources contains my preferred color theme for urxvt (terminal) and also my preferred cursor theme for my laptop. I can't remember where I got the colors from, sorry for no credit. I like a bigger and more wide cursor theme on my little laptop screen. Here I'm using Breeze (yes, kde, deal with it).
 
@@ -26,14 +26,6 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
  #+END_SRC
 
 ** Emacs
-*** Prerequisites
-
- Start by installing [[https://github.com/cask/cask][Cask]]. *NOTE* this requires you to add the cask folder to your $PATH. This is already done if you are using my .zshenv file.
-
- #+BEGIN_SRC sh
- $ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
- #+END_SRC
-
 *** Copy and linking .emacs.d
  .emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
 
@@ -45,29 +37,16 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
 
  #+BEGIN_SRC sh
  $ cd ~/.emacs.d
- $ rm -rf config.org init.el Cask lib snippets themes
+ $ rm -rf config.org init.el custom.el lib snippets themes
  $ ln -s $DOTFILES/.emacs.d/config.org
  $ ln -s $DOTFILES/.emacs.d/init.el
- $ ln -s $DOTFILES/.emacs.d/Cask
+ $ ln -s $DOTFILES/.emacs.d/custom.el
  $ ln -s $DOTFILES/.emacs.d/lib
  $ ln -s $DOTFILES/.emacs.d/snippets
  $ ln -s $DOTFILES/.emacs.d/themes
  #+END_SRC
 
-*** Installing packages
- First time you open Emacs, you will get some errors. My Emacs setup uses pallet, although it use-packages might be better (and I might move to that in the future). Install packages from Cask file:
-
- #+BEGIN_SRC emacs
- M-x pallet-install RET
- #+END_SRC
-
-
- The installation will get interrupted. This will display an error, ignore that, and run it again:
-
- #+BEGIN_SRC emacs
- M-x pallet-install RET
- #+END_SRC
-
+Emacs should now install packages and load configuration on first launch.
 *** Emacsclient
  To start [[https://www.emacswiki.org/emacs/EmacsClient][emacsclient]] it is practical use a .desktop entry. This will add emacsclient your application menu.
 
@@ -75,7 +54,6 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
  # cp $DOTFILES/emacsclient.desktop /usr/share/applications
  #+END_SRC
 
-** Emacs X Window Manager - WIP
 ** i3 Window Manager
  I use the i3 window manager on most of my machines. i3 is a tiling window manager, and I would recommend reading about it *before* installing it. The installation is pretty simple. Copy or link the config file inside the i3 directory.
 

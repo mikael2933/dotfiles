@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: use-package
+# key: up_
+# --
+(use-package $0
+  ${1::commands}
+  ${2::bind}
+  ${3::init}
+  ${4::config}
+)

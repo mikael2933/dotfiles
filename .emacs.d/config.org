@@ -1,5 +1,3 @@
-#+TITLE: Emacs configuration
-#+AUTHOR: Mikael Zhang
 
 * Emacs internal configuration
 ** Load library path ~/.emacs.d/lib/
@@ -19,11 +17,6 @@
 (global-unset-key (kbd "C-z"))
 #+END_SRC
 
-** Find and replace Control C, Control s
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-c C-s") 'query-replace)
-#+END_SRC 
-
 ** Disable bars
 Disable menu-, tool- and scroll-bar for more space
 #+BEGIN_SRC emacs-lisp
@@ -33,57 +26,49 @@ Disable menu-, tool- and scroll-bar for more space
 #+END_SRC
 
 ** Truncate Lines
-
 #+BEGIN_SRC emacs-lisp
 (set-default 'truncate-line t)
 #+END_SRC
 
-** Saving Emacs Sessions - NOT IN USE
-https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
+* Misc
+Dash
+* org-mode
 #+BEGIN_SRC emacs-lisp
-;;(desktop-save-mode 1)
+(use-package org
+  :ensure t
+  :init
+  (setq org-support-shift-select t)
+  ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+  (setq org-src-fontify-natively t)
+  ;;LaTeX-pdf output on F10
+  (org-defkey org-mode-map [f10] 'org-latex-export-to-pdf)
+)
 #+END_SRC
 
-** Don't ask follow symlinks
-   https://emacs.stackexchange.com/questions/3673/how-to-make-vc-and-magit-treat-a-symbolic-link-to-a-real-file-in-git-repo-just
-** AlarmBell
-https://www.emacswiki.org/emacs/AlarmBell
-* org-mode configuration
-** Beamer org export
-
+* ox-beamer
 #+BEGIN_SRC emacs-lisp
-(require 'ox-beamer)
-#+END_SRC
-
-** Support Shift Select
-
-#+BEGIN_SRC emacs-lisp
-(setq org-support-shift-select t)
-#+END_SRC
-
-** Syntax highlighting
-https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
-
-#+BEGIN_SRC emacs-lisp
-(setq org-src-fontify-natively t)
-#+END_SRC
-
-** LaTeX-pdf output on F10
-
-#+BEGIN_SRC emacs-lisp
-(org-defkey org-mode-map [f10] 'org-latex-export-to-pdf)
+(use-package ox-beamer)
 #+END_SRC
 
 * org-bullets
 https://github.com/sabof/org-bullets
 #+BEGIN_SRC emacs-lisp
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode-hook . (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
 * Theme and looks 
 ** Load ~/.emacs.d/themes
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+#+END_SRC
+
+** Leuven-theme
+https://github.com/fniessen/emacs-leuven-theme
+#+BEGIN_SRC emacs-lisp
+(use-package leuven-theme
+  :ensure t)
 #+END_SRC
 
 ** Highlight Line Mode
@@ -95,23 +80,33 @@ https://github.com/sabof/org-bullets
 https://github.com/TheBB/spaceline
 
 #+BEGIN_SRC emacs-lisp
+(use-package spaceline
+  :ensure t
+  :init
   (require 'spaceline-config)
   (spaceline-emacs-theme)
   (setq powerline-default-separator nil)
-  (spaceline-compile)
+  (spaceline-compile))
 #+END_SRC
 
 * YASnippet
 https://github.com/joaotavora/yasnippet
 #+BEGIN_SRC emacs-lisp
-  (require 'yasnippet)
-  (yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1))
+(use-package yasnippet-snippets
+  :ensure t)
 #+END_SRC
 
 * ob-sagemath
-https://github.com/stakemori/ob-sagemath
+  https://github.com/stakemori/ob-sagemath
 
 #+BEGIN_SRC emacs-lisp
+(use-package ob-sagemath
+  :ensure t
+  :init
   ;; Ob-sagemath supports only evaluating with a session.
   (setq org-babel-default-header-args:sage '((:session . t)
 					     (:results . "output")))
@@ -124,7 +119,7 @@ https://github.com/stakemori/ob-sagemath
   (setq org-confirm-babel-evaluate nil)
 
   ;; Show images when opening a file.
-  (setq org-startup-with-inline-images t)
+  (setq org-startup-with-inline-images t))
 #+END_SRC
 
 ** Sage-shell-mode derived
@@ -140,55 +135,83 @@ https://www.gnu.org/software/emacs/manual/html_node/elisp/Derived-Modes.html
   (provide 'sage-mode)
 #+END_SRC
 
+* Sage-shell-mode
+#+BEGIN_SRC emacs-lisp
+(use-package sage-shell-mode
+  :ensure t)
+#+END_SRC
+
 * auto-complete
 https://github.com/auto-complete/auto-complete
 #+BEGIN_SRC emacs-lisp
-(ac-config-default)
+(use-package auto-complete
+  :ensure t
+  :init
+  (ac-config-default)
+)
+
 #+END_SRC
 
 ** auto-complete-sage
 https://github.com/stakemori/auto-complete-sage
 #+BEGIN_SRC emacs-lisp
-(add-hook 'sage-shell:sage-mode-hook 'ac-sage-setup)
-(add-hook 'sage-shell-mode-hook 'ac-sage-setup)
-;; Show quick help
-(setq ac-sage-show-quick-help t)
+(use-package auto-complete-sage
+  :ensure t
+  :init
+  (add-hook 'sage-shell:sage-mode-hook 'ac-sage-setup)
+  (add-hook 'sage-shell-mode-hook 'ac-sage-setup)
+  ;; Show quick help
+  (setq ac-sage-show-quick-help t)
+)
 #+END_SRC
 
 * Magit
 https://github.com/magit/magit
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x g") 'magit-status)
+(use-package magit
+  :ensure t
+  :commands (magit-status)
+  :bind ("C-x g" . magit-status))
 #+END_SRC
 
 * Emacs-dashboard
 https://github.com/rakanalh/emacs-dashboard
 
 #+BEGIN_SRC emacs-lisp
-  (require 'dashboard)
+(use-package dashboard
+  :ensure t
+  :init
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (setq dashboard-items '((recents . 5)))
+  (setq dashboard-items '((recents . 5))))
 #+END_SRC
 
 * Beacon
 https://github.com/Malabarba/beacon
 #+BEGIN_SRC emacs-lisp
-(beacon-mode 1)
+(use-package beacon
+  :ensure t
+  :init
+  (beacon-mode 1)
+)
 #+END_SRC
 
 * linum-relative
 https://github.com/coldnew/linum-relative
 
 #+BEGIN_SRC emacs-lisp
-  (require 'linum-relative)
-  (global-set-key (kbd "C-<f9>") 'linum-relative-toggle)
+(use-package linum-relative
+  :ensure t
+  :commands linum-relative-toggle
+  :bind ("C-<f9>" . linum-relative-toggle))
 #+END_SRC
 
 * Helm
 https://github.com/emacs-helm/helm/wiki#install
 #+BEGIN_SRC emacs-lisp
-(require 'helm-config)
+(use-package helm
+  :ensure t
+)
 #+END_SRC
 
 ** Find files
@@ -203,14 +226,15 @@ Set C-h C-f
 https://github.com/chrisdone/god-mode
 
 #+BEGIN_SRC emacs-lisp
-  (require 'god-mode)
-
+(use-package god-mode
+  :ensure t
+  :commands god-mode-all
   ;; Set ½ as toggle
-  (global-set-key (kbd "C-½") 'god-mode-all)
-
+  :bind ("C-½" . god-mode-all)
+  :init
   ;; If you are using the global mode, you might want to make no buffers exempt
   (setq god-exempt-major-modes nil)
-  (setq god-exempt-predicates nil)
+  (setq god-exempt-predicates nil))
 #+END_SRC
 
 * Ace-window
@@ -218,104 +242,145 @@ https://github.com/chrisdone/god-mode
 https://github.com/abo-abo/ace-window
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "M-o") 'ace-window)
+(use-package ace-window
+  :ensure t
+  :commands (ace-window)
+  :bind ("M-o" . ace-window))
 #+END_SRC
 
 * Multiple cursors
 https://github.com/magnars/multiple-cursors.el
 #+BEGIN_SRC emacs-lisp
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-;") 'mc/mark-all-like-this)
+(use-package multiple-cursors 
+  :ensure t
+  :commands (mc/mark-next-like-this mc/mark-previous-like-this mc/mark-all-like-this)
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+	 ("C-;" . mc/mark-all-like-this)))
 #+END_SRC
 
 * Swiper
 https://github.com/abo-abo/swiper
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-s") 'swiper)
-  (global-set-key (kbd "C-S-s") 'isearch-forward)
+(use-package swiper
+  :ensure t
+  :commands swiper
+  :bind (("C-s" . swiper)
+         ("C-S-s" . isearch-forward)))
 #+END_SRC
 
 * Ivy
 https://github.com/abo-abo/swiper
 
 #+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :ensure t
+  :commands ivy-resume
+  :bind ("C-c C-r" . ivy-resume)
+  :init
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (setq enable-recursive-minibuffers t))
 #+END_SRC
 
 * Counsel
 https://github.com/abo-abo/swiper
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-  (global-set-key (kbd "<f1> l") 'counsel-find-library)
-  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  (global-set-key (kbd "C-c g") 'counsel-git)
-  (global-set-key (kbd "C-c j") 'counsel-git-grep)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
-  (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-  (global-set-key (kbd "M-y") 'counsel-yank-pop)
-  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-histor)
+(use-package counsel
+  :ensure t
+  :commands (counsel-M-x counsel-find-file counsel-describe-function counsel-describe-variable counsel-find-library counsel-info-lookup-symbol counsel-unicode-char counsel-git counsel-git-grep counsel-ag counsel-locate counsel-rhythmbox counsel-yank-pop)
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("<f1> f" . counsel-describe-function)
+         ("<f1> v" . counsel-describe-variable)
+         ("<f1> l" . counsel-find-library)
+         ("<f2> i" . counsel-info-lookup-symbol)
+         ("<f2> u" . counsel-unicode-char)
+         ("C-c g" . counsel-git)
+         ("C-c j" . counsel-git-grep)
+         ("C-c k" . counsel-ag)
+         ("C-x l" . counsel-locate)
+         ("C-S-o" . counsel-rhythmbox)
+         ("M-y" . counsel-yank-pop))
+  :init
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 #+END_SRC
 
 * Undo Tree
 https://www.emacswiki.org/emacs/UndoTree
 
 #+BEGIN_SRC emacs-lisp
-  (global-undo-tree-mode)
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
 #+END_SRC
 
 * Aggressive Indent Mode
 https://github.com/Malabarba/aggressive-indent-mode
 
 #+BEGIN_SRC emacs-lisp
+(use-package aggressive-indent
+  :ensure t
+  :init 
   (global-aggressive-indent-mode 1)
-  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode))
 #+END_SRC
 
 * Expand Region
 https://github.com/magnars/expand-region.el
 
 #+BEGIN_SRC emacs-lisp
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(use-package expand-region
+  :ensure t
+  :commands er/expand-region
+  :bind ("C-=" . er/expand-region))
 #+END_SRC
 
 * Git Gutter
 https://github.com/syohex/emacs-git-gutter
 #+begin_src emacs-lisp
-  (global-git-gutter-mode +1)
-  (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
-  (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
-  (global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
-  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
-  (global-set-key (kbd "C-x v SPC") #'git-gutter:mark-hunk)
+(use-package git-gutter
+  :ensure t
+  :commands (git-gutter:previous-hunk git-gutter:next-hunk git-gutter:stage-hunk git-gutter:revert-hunk git-gutter:mark-hunk)
+  :bind (("C-x p" . git-gutter:previous-hunk)
+         ("C-x n" . git-gutter:next-hunk)
+         ("C-x v s" . git-gutter:stage-hunk)
+         ("C-x v r" . git-gutter:revert-hunk)
+         ("C-x v SPC" . git-gutter:mark-hunk))
+  :init
+  (global-git-gutter-mode +1))
 #+end_src
+
+* Git Timemachine
+#+BEGIN_SRC emacs-lisp
+(use-package git-timemachine
+  :ensure t)
+#+END_SRC
 
 * Projectile
 https://github.com/bbatsov/projectile
 #+BEGIN_SRC emacs-lisp
-  (projectile-global-mode)
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-global-mode))
 #+END_SRC
-
-* Counsel Projectile
-https://github.com/ericdanan/counsel-projectile
 
 * IBuffer
 https://www.emacswiki.org/emacs/IbufferMode
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
+(use-package ibuffer-git
+  :ensure t
+  :commands ibuffer
+  :bind ("C-x C-b" . ibuffer)
+  :hook (ibuffer-mode-hook . (lambda ()
+	       (ibuffer-auto-mode 1)
+	       (ibuffer-switch-to-saved-filter-groups "home")))
+  :init
   (setq ibuffer-saved-filter-groups
 	'(("home"
 	   ("dired" (mode . dired-mode))
@@ -331,94 +396,121 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 	   ("emacs" (or
 		     (name . "^\\*scratch\\*$")
 		     (name . "^\\*Messages\\*$")))
-	   )))
-  (add-hook 'ibuffer-mode-hook
-	    '(lambda ()
-	       (ibuffer-auto-mode 1)
-	       (ibuffer-switch-to-saved-filter-groups "home")))
+	   ))))
 #+END_SRC
 
 * Smartparens
 https://github.com/Fuco1/smartparens
 
 #+BEGIN_SRC emacs-lisp
-  (require 'smartparens-config)
+(use-package smartparens
+  :ensure t
+  :init
+  (require 'smartparens-config))
 #+END_SRC
 
 * Flycheck
 http://www.flycheck.org/en/latest/
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-#+END_SRC
-
-* HideShow
-https://www.emacswiki.org/emacs/HideShow
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'hs-minor-mode)
+(use-package flycheck
+  :ensure t
+  :hook (after-init-hook . global-flycheck-mode))
 #+END_SRC
 
 * All the Icons
 https://github.com/domtronn/all-the-icons.el
-#+begin_src emacs-lisp
-  (require 'all-the-icons)
-#+end_src
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+  :ensure t 
+  :requires (all-the-icons-dired all-the-icons-gnus all-the-icons-ivy))
+#+END_SRC
 
 * Anzu
 https://github.com/syohex/emacs-anzu
 
 #+BEGIN_SRC emacs-lisp
-(global-anzu-mode +1)
+(use-package anzu
+  :ensure t
+  :init
+  (global-anzu-mode +1)
+)
+
 #+END_SRC
 
 * Rainbow Delimiters
 https://www.emacswiki.org/emacs/RainbowDelimiters
 
 #+BEGIN_SRC emacs-lisp
-(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :ensure t
+  :hook ((prog-mode-hook . rainbow-delimiters-mode)
+         (org-mode-hook . rainbow-delimiters-mode)))
+#+END_SRC
+
+* Rainbow-mode
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+  :ensure t)
 #+END_SRC
 
 * Org-ref
 https://github.com/jkitchin/org-ref
 
 #+BEGIN_SRC emacs-lisp
-  (require 'org-ref)
+  (use-package org-ref
+    :ensure t)
 #+END_SRC
 
 * ox-hugo
 https://github.com/kaushalmodi/ox-hugo
 
 #+BEGIN_SRC emacs-lisp
-(with-eval-after-load 'ox
-  (require 'ox-hugo))
+(use-package ox-hugo
+  :ensure t
+  :after ox)
 #+END_SRC
-* Haskell-ide-engine / lsp-haskell
-https://github.com/haskell/haskell-ide-engine
-https://github.com/emacs-lsp/lsp-haskell
 
-#+BEGIN_SRC emacs-lisp
-(require 'lsp-ui)
-(require 'lsp-haskell)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-
-(add-hook 'haskell-mode-hook #'lsp-haskell-enable)
-(add-hook 'haskell-mode-hook 'flycheck-mode)
-#+END_SRC
 * helm-org-rifle 
 https://github.com/alphapapa/helm-org-rifle
 
 #+BEGIN_SRC emacs-lisp
-(require 'helm-org-rifle)
+(use-package helm-org-rifle
+  :ensure t)
 #+END_SRC
-* lsp-python
+
+* lsp-mode
+https://github.com/emacs-lsp/lsp-mode
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :ensure t)
+#+END_SRC
+** lsp-ui
+https://github.com/emacs-lsp/lsp-ui
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-ui
+  :ensure t
+  :hook (lsp-mode-hook . lsp-ui-mode)
+)
+#+END_SRC
+** lsp-haskell
+https://github.com/haskell/haskell-ide-engine
+https://github.com/emacs-lsp/lsp-haskell
+
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-haskell
+  :ensure t
+  :hook ((haskell-mode-hook . lsp-haskell-enable)
+         (haskell-mode-hook . flycheck-mode)))
+#+END_SRC
+
+** lsp-python
 https://github.com/emacs-lsp/lsp-python
 
 #+BEGIN_SRC emacs-lisp
-(require 'lsp-mode)
-(require 'lsp-python)
-(add-hook 'python-mode-hook #'lsp-python-enable)
+(use-package lsp-python
+  :ensure t
+  :hook (python-mode-hook . lsp-python-enable))
 #+END_SRC
 
 * 

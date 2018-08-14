@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: use-package
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# key: up_
+# --
+(use-package $1
+  ${2::ensure t}
+)
