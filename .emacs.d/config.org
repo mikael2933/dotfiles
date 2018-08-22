@@ -513,4 +513,26 @@ https://github.com/emacs-lsp/lsp-python
   :hook (python-mode-hook . lsp-python-enable))
 #+END_SRC
 
+* flyspell
+#+BEGIN_SRC emacs-lisp
+  (setq ispell-program-name (executable-find "hunspell")
+	ispell-dictionary "en_GB")
+  (bind-key "C-c i"
+	    (lambda ()
+	      (interactive)
+	      (if (eq ispell-dictionary "en_GB")
+		  (ispell-change-dictionary "da_DK")
+		(ispell-change-dictionary "en_GB"))
+	      (flyspell-buffer)))
+#+END_SRC
+
+* flyspell-correct
+#+BEGIN_SRC emacs-lisp
+(use-package flyspell-correct-ivy
+  :ensure t
+  :after flyspell
+  :bind (:map flyspell-mode-map
+              ("C-." . flyspell-correct-word-generic)))
+#+END_SRC
+
 * 
