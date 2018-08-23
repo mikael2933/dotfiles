@@ -536,4 +536,18 @@ https://github.com/d12frosted/flyspell-correct
               ("C-." . flyspell-correct-word-generic)))
 #+END_SRC
 
+* imenu-list
+https://www.emacswiki.org/emacs/ImenuMode
+https://jblevins.org/log/markdown-imenu
+https://github.com/bmag/imenu-list
+
+#+BEGIN_SRC emacs-lisp
+(use-package imenu-list 
+  :ensure t
+  :commands (imenu-list-smart-toggle)
+  :bind ("<f7>" . imenu-list-smart-toggle)
+  :hook (org-mode imenu-add-menubar-index)
+  :init (setq imenu-auto-rescan t))
+#+END_SRC
+
 * 
