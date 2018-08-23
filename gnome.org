@@ -9,3 +9,15 @@ Icons: [[https://www.deviantart.com/tiheum/art/Faience-icon-theme-255099649][Fai
 - Flippery move clock
 - Dash to dock
 - Better volume indicator
+* Commands
+Whole screen screenshot
+#+BEGIN_SRC sh
+gnome-screenshot
+#+END_SRC
+
+Area screenshot
+#+BEGIN_SRC sh
+gnome-screenshot -a
+#+END_SRC
+
+change default gnome-screen directory with dconf.
