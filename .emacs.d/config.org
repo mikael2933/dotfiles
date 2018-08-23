@@ -25,11 +25,6 @@ Disable menu-, tool- and scroll-bar for more space
 (scroll-bar-mode -1)
 #+END_SRC
 
-** Truncate Lines
-#+BEGIN_SRC emacs-lisp
-(setq-default truncate-line t)
-#+END_SRC
-
 * Misc
 Dash
 * org-mode

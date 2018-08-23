@@ -31,6 +31,7 @@
  '(sgml-basic-offset 4)
  '(show-smartparens-global-mode t)
  '(tramp-default-method "ssh" nil (tramp))
+ '(truncate-lines t)
  '(vc-follow-symlinks t)
  '(visible-bell t))
 (custom-set-faces
