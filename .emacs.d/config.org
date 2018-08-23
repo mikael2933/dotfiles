@@ -27,7 +27,7 @@ Disable menu-, tool- and scroll-bar for more space
 
 ** Truncate Lines
 #+BEGIN_SRC emacs-lisp
-(set-default 'truncate-line t)
+(setq-default truncate-line t)
 #+END_SRC
 
 * Misc
