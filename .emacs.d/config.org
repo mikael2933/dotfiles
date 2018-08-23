@@ -548,8 +548,9 @@ https://github.com/bmag/imenu-list
   :ensure t
   :commands (imenu-list-smart-toggle)
   :bind ("<f7>" . imenu-list-smart-toggle)
-  :hook (org-mode imenu-add-menubar-index)
-  :init (setq imenu-auto-rescan t))
+  :init 
+  (setq imenu-auto-rescan t)
+  (add-hook 'org-mode-hook 'imenu-add-menubar-index))
 #+END_SRC
 
 * 
