@@ -514,14 +514,16 @@ https://manuel-uberti.github.io/emacs/2016/06/06/spellchecksetup/
 
 #+BEGIN_SRC emacs-lisp
   (setq ispell-program-name (executable-find "hunspell")
-	ispell-dictionary "en_GB")
+	ispell-local-dictionary "en_GB")
   (bind-key "C-c i"
 	    (lambda ()
 	      (interactive)
-	      (if (eq ispell-dictionary "en_GB")
+	      (if (equal ispell-local-dictionary "en_GB")
 		  (ispell-change-dictionary "da_DK")
 		(ispell-change-dictionary "en_GB"))
 	      (flyspell-buffer)))
+  (add-to-list 'ispell-skip-region-alist '("^#+BEGIN_SRC" . "^#+END_SRC"))
+  (add-hook 'org-mode-hook 'flyspell-mode)
 #+END_SRC
 
 Install hunspell-en_GB and hunspell-da. 
