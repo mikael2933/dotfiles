@@ -514,6 +514,9 @@ https://github.com/emacs-lsp/lsp-python
 #+END_SRC
 
 * flyspell
+https://www.emacswiki.org/emacs/FlySpell
+https://manuel-uberti.github.io/emacs/2016/06/06/spellchecksetup/
+
 #+BEGIN_SRC emacs-lisp
   (setq ispell-program-name (executable-find "hunspell")
 	ispell-dictionary "en_GB")
@@ -526,7 +529,10 @@ https://github.com/emacs-lsp/lsp-python
 	      (flyspell-buffer)))
 #+END_SRC
 
+Install hunspell-en_GB and hunspell-da. 
 * flyspell-correct
+https://github.com/d12frosted/flyspell-correct
+
 #+BEGIN_SRC emacs-lisp
 (use-package flyspell-correct-ivy
   :ensure t
