@@ -553,4 +553,11 @@ https://github.com/bmag/imenu-list
   (add-hook 'org-mode-hook 'imenu-add-menubar-index))
 #+END_SRC
 
+* racket-mode
+https://github.com/greghendershott/racket-mode
+#+BEGIN_SRC emacs-lisp
+(use-package racket-mode
+  :ensure t)
+#+END_SRC
+
 * 
