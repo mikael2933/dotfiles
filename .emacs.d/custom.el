@@ -29,6 +29,7 @@
  '(projectile-completion-system (quote ivy))
  '(ring-bell-function (quote ignore))
  '(sgml-basic-offset 4)
+ '(show-paren-mode t)
  '(show-smartparens-global-mode t)
  '(tramp-default-method "ssh" nil (tramp))
  '(truncate-lines t)
