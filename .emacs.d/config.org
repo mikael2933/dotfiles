@@ -182,18 +182,6 @@ https://github.com/magit/magit
   :bind ("C-x g" . magit-status))
 #+END_SRC
 
-* Emacs-dashboard
-https://github.com/rakanalh/emacs-dashboard
-
-#+BEGIN_SRC emacs-lisp
-(use-package dashboard
-  :ensure t
-  :init
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (setq dashboard-items '((recents . 5))))
-#+END_SRC
-
 * Beacon
 https://github.com/Malabarba/beacon
 #+BEGIN_SRC emacs-lisp
