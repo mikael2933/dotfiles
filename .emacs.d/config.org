@@ -27,6 +27,19 @@ Disable menu-, tool- and scroll-bar for more space
 
 * Misc
 Dash
+** New empty buffer
+http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
+
+#+BEGIN_SRC emacs-lisp
+  (defun new-empty-buffer()
+    (interactive)
+    (let (($buf (generate-new-buffer "untitled")))
+      (switch-to-buffer $buf)
+      (funcall initial-major-mode)
+      (setq buffer-offer-save t)
+      $buf))
+#+END_SRC
+
 * org-mode
 #+BEGIN_SRC emacs-lisp
 (use-package org
