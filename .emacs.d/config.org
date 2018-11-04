@@ -561,4 +561,12 @@ https://github.com/greghendershott/racket-mode
   :ensure t)
 #+END_SRC
 
+* helm-ag
+https://github.com/syohex/emacs-helm-ag
+
+#+BEGIN_SRC emacs-lisp
+(use-package helm-ag
+  :ensure t)
+#+END_SRC
+
 * 
