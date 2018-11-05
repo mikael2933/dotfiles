@@ -33,6 +33,8 @@
  '(show-smartparens-global-mode t)
  '(tramp-default-method "ssh" nil (tramp))
  '(truncate-lines t)
+ '(undo-tree-visualizer-diff t)
+ '(undo-tree-visualizer-timestamps t)
  '(vc-follow-symlinks t)
  '(visible-bell t))
 (custom-set-faces
