@@ -578,4 +578,21 @@ https://github.com/abo-abo/avy
     :bind ("C-:" . avy-goto-char))
 #+END_SRC
 
+* helm-flx
+https://github.com/PythonNut/helm-flx
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-flx
+    :ensure t
+    :requires (flx)
+    :init (helm-flx-mode +1))
+#+END_SRC
+
+* helm-fuzzier
+https://github.com/EphramPerdition/helm-fuzzier
+#+BEGIN_SRC emacs-lisp
+(use-package helm-fuzzier
+  :ensure t
+  :init (helm-fuzzier-mode 1))
+#+END_SRC
+
 * 
