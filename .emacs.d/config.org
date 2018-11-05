@@ -63,7 +63,8 @@ https://github.com/sabof/org-bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets
   :ensure t
-  :hook (org-mode-hook . (lambda () (org-bullets-mode 1))))
+  :commands (org-bullets-mode)
+  :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
 * Theme and looks 
