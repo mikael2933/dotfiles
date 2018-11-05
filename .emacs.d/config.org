@@ -597,4 +597,16 @@ https://github.com/EphramPerdition/helm-fuzzier
   :init (helm-fuzzier-mode 1))
 #+END_SRC
 
-* 
+* helm-hunks 
+https://github.com/torgeir/helm-hunks.el
+
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-hunks
+    :ensure t
+    :commands (helm-hunks
+	       helm-hunks-current-buffer
+	       helm-hunks-staged
+	       helm-hunks-staged-current-buffer)
+    :init (setq helm-hunks-preview-diffs t))
+#+END_SRC
+
