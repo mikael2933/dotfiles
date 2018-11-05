@@ -16,6 +16,8 @@
  '(helm-M-x-fuzzy-match t)
  '(helm-apropos-fuzzy-match t)
  '(helm-buffers-fuzzy-matching t)
+ '(helm-flx-for-helm-locate t)
+ '(helm-locate-fuzzy-match t)
  '(inhibit-startup-screen t)
  '(max-lisp-eval-depth 10000)
  '(max-specpdl-size 100000)
