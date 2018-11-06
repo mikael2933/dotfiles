@@ -613,3 +613,10 @@ https://github.com/aki2o/org-linkany
 #+END_SRC
 
 
+* centered-cursor-mode
+#+BEGIN_SRC emacs-lisp
+https://github.com/emacsmirror/centered-cursor-mode
+(use-package centered-cursor-mode
+  :ensure t)
+#+END_SRC
+
