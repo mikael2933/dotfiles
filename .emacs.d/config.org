@@ -213,13 +213,6 @@ https://github.com/emacs-helm/helm/wiki#install
 
 #+END_SRC
 
-** Find files
-Set C-h C-f
-
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-h C-f") 'helm-find-files)
-#+END_SRC
-
 * God-mode
 
 https://github.com/chrisdone/god-mode
