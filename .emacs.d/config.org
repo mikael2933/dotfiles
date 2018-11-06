@@ -259,8 +259,7 @@ https://github.com/abo-abo/swiper
 (use-package swiper
   :ensure t
   :commands swiper
-  :bind (("C-s" . swiper)
-         ("C-S-s" . isearch-forward)))
+  :bind (("C-s" . swiper)))
 #+END_SRC
 
 * Ivy
@@ -618,5 +617,17 @@ https://github.com/aki2o/org-linkany
 https://github.com/emacsmirror/centered-cursor-mode
 (use-package centered-cursor-mode
   :ensure t)
+#+END_SRC
+
+* visual-regexp-steroids
+https://github.com/benma/visual-regexp-steroids.el/
+#+BEGIN_SRC emacs-lisp
+  (use-package visual-regexp-steroids
+    :ensure t
+    :requires (visual-regexp)
+    :bind (("C-c r" . 'vr/replace)
+	   ("C-c q" . 'vr/query-replace)
+	   ("C-c m" . 'vr/mc-mark)
+	   ("C-S-s" . 'vr/isearch-forward)))
 #+END_SRC
 
