@@ -208,8 +208,7 @@ https://github.com/emacs-helm/helm/wiki#install
 #+BEGIN_SRC emacs-lisp
   (use-package helm
     :ensure t
-    :bind ("M-x" . helm-M-x)
-    :init (helm-mode 1))
+    :bind ("M-x" . helm-M-x))
 
 #+END_SRC
 
