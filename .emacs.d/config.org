@@ -604,3 +604,12 @@ https://github.com/torgeir/helm-hunks.el
     :init (setq helm-hunks-preview-diffs t))
 #+END_SRC
 
+* org-linkany
+https://github.com/aki2o/org-linkany
+#+BEGIN_SRC emacs-lisp
+  (use-package org-linkany
+    :ensure t
+    :requires (log4e yaxception))
+#+END_SRC
+
+
