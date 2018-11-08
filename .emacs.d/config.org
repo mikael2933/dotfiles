@@ -364,30 +364,30 @@ https://github.com/bbatsov/projectile
 https://www.emacswiki.org/emacs/IbufferMode
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 #+BEGIN_SRC emacs-lisp
-(use-package ibuffer-git
-  :ensure t
-  :commands ibuffer
-  :bind ("C-x C-b" . ibuffer)
-  :hook (ibuffer-mode-hook . (lambda ()
-	       (ibuffer-auto-mode 1)
-	       (ibuffer-switch-to-saved-filter-groups "home")))
-  :init
-  (setq ibuffer-saved-filter-groups
-	'(("home"
-	   ("dired" (mode . dired-mode))
-	   ("org" (name . "^.*org$"))
-	   ("web" (or (mode . web-mode) (mode . js2-mode)))
-	   ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
-	   ("mu4e" (name . "\*mu4e\*"))
-	   ("programming" (or
-			   (mode . python-mode)
-			   (mode . c++-mode)
-			   (mode . haskell-mode)
-			   (mode . emacs-lisp-mode)))
-	   ("emacs" (or
-		     (name . "^\\*scratch\\*$")
-		     (name . "^\\*Messages\\*$")))
-	   ))))
+  (use-package ibuffer-git
+    :ensure t
+    :commands ibuffer
+    :bind ("C-x C-b" . ibuffer)
+    :hook (ibuffer-mode-hook . (lambda ()
+				 (ibuffer-auto-mode 1)
+				 (ibuffer-switch-to-saved-filter-groups "home")))
+    :init
+    (setq ibuffer-saved-filter-groups
+	  '(("home"
+	     ("dired" (mode . dired-mode))
+	     ("org" (name . "^.*org$"))
+	     ("web" (or (mode . web-mode) (mode . js2-mode)))
+	     ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
+	     ("Programming" (or
+			     (mode . python-mode)
+			     (mode . c++-mode)
+			     (mode . haskell-mode)
+			     (mode . emacs-lisp-mode)))
+	     ("Scheme" (name . "^.*scm$"))
+	     ("Emacs" (or
+		       (name . "^\\*scratch\\*$")
+		       (name . "^\\*Messages\\*$")))
+	     ))))
 #+END_SRC
 
 * Smartparens
