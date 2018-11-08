@@ -117,3 +117,10 @@ Emacs should now install packages and load configuration on first launch.
  #+BEGIN_SRC sh
  PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
  #+END_SRC
+** TeXmacs
+Remove prog folder, and replace with dotfiles
+#+BEGIN_SRC sh
+$ rm -rf ~/.TeXmacs/progs
+$ ln -s $DOTFILES/.TeXmacs/progs ~/.TeXmacs/progs
+#+END_SRC
+
