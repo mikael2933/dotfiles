@@ -1,5 +1,3 @@
-(package-initialize)
-
 ;; Require Melpa on first install
 (require 'package)
 (setq package-enable-at-startup nil)

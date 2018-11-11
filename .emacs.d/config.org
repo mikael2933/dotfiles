@@ -77,7 +77,8 @@ https://github.com/sabof/org-bullets
 https://github.com/fniessen/emacs-leuven-theme
 #+BEGIN_SRC emacs-lisp
 (use-package leuven-theme
-  :ensure t)
+  :ensure t
+  :defer t)
 #+END_SRC
 
 ** Highlight Line Mode

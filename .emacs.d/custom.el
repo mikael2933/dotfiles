@@ -5,10 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(anzu-cons-mode-line-p nil)
  '(ccm-vpos-init (quote (round (ccm-visible-text-lines) 2)))
- '(custom-enabled-themes (quote (custom-leuven)))
+ '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("2e6a7437219bf5a926316776c807d4dc31766ab94abe3829d675f333b06d5636" "5280d3d44e7260e9a779710425d88fa071928f5703a5691fa08747818804d14a" "540954a9ac6825292156cda74de13d518661d9360522ecddcac74695bea557e3" "1217330e20209930251620110826e6a8e6070b00b90097b1e876d0ed21f93e97" "a3be4674b03af0bdebda177bf89c0d31134474122b9d2d89df881b1b4f3164ab" "24224653f3de4687c83d991619339ce99c6e8597b89fa60c70c486c2ae3b135c" "9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" "ff798ae7e7f84b2260042c27978f52c996830132961cae618d917b017509cc92" default)))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "eb7be1648009af366d83f855191057bdc09348a2d9353db31da03b1cdec50cc5" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "2e6a7437219bf5a926316776c807d4dc31766ab94abe3829d675f333b06d5636" "5280d3d44e7260e9a779710425d88fa071928f5703a5691fa08747818804d14a" "540954a9ac6825292156cda74de13d518661d9360522ecddcac74695bea557e3" "1217330e20209930251620110826e6a8e6070b00b90097b1e876d0ed21f93e97" "a3be4674b03af0bdebda177bf89c0d31134474122b9d2d89df881b1b4f3164ab" "24224653f3de4687c83d991619339ce99c6e8597b89fa60c70c486c2ae3b135c" "9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" "ff798ae7e7f84b2260042c27978f52c996830132961cae618d917b017509cc92" default)))
  '(delete-selection-mode t)
  '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
@@ -30,7 +30,7 @@
  '(org-highlight-latex-and-related (quote (latex script entities)))
  '(package-selected-packages
    (quote
-    (darkroom vlf visual-regexp-steroids centered-cursor-mode org-linkany helm-hunks avy ag helm-ag racket-mode imenu-list helm-org-rifle ox-hugo org-ref leuven-theme spaceline anzu company-ghc ghc all-the-icons-ivy all-the-icons-dired all-the-icons-gnus git-timemachine ghub helm helm-core ivy yasnippet smartparens powerline ibuffer-git dumb-jump counsel-projectile projectile git-gutter iedit expand-region aggressive-indent undo-tree ox-reveal ace-window swiper-helm atomic-chrome intero smex multiple-cursors buffer-move ## god-mode haskell-mode counsel rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage)))
+    (solarized-theme darkroom vlf visual-regexp-steroids centered-cursor-mode org-linkany helm-hunks avy ag helm-ag racket-mode imenu-list helm-org-rifle ox-hugo org-ref leuven-theme spaceline anzu company-ghc ghc all-the-icons-ivy all-the-icons-dired all-the-icons-gnus git-timemachine ghub helm helm-core ivy yasnippet smartparens powerline ibuffer-git dumb-jump counsel-projectile projectile git-gutter iedit expand-region aggressive-indent undo-tree ox-reveal ace-window swiper-helm atomic-chrome intero smex multiple-cursors buffer-move ## god-mode haskell-mode counsel rainbow-mode yasnippet-snippets ranger rainbow-delimiters pallet org-bullets ob-sagemath magit linum-relative helm-sage flyspell-correct-ivy exwm dashboard color-theme-sanityinc-tomorrow cdlatex beacon auto-complete-sage)))
  '(powerline-default-separator nil)
  '(projectile-completion-system (quote ivy))
  '(ring-bell-function (quote ignore))
