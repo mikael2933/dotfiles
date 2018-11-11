@@ -211,7 +211,7 @@ https://github.com/emacs-helm/helm/wiki#install
     :ensure t
     :bind (("M-x" . helm-M-x)
 	   ("C-x C-l" . helm-locate)
-	   ("C-x r l" . helm-bookmark)))
+	   ("C-x r l" . helm-bookmarks)))
 
 
 #+END_SRC
