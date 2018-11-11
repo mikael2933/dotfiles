@@ -371,26 +371,14 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
     :ensure t
     :commands ibuffer
     :bind ("C-x C-b" . ibuffer)
-    :hook (ibuffer-mode-hook . (lambda ()
-				 (ibuffer-auto-mode 1)
-				 (ibuffer-switch-to-saved-filter-groups "home")))
-    :init
-    (setq ibuffer-saved-filter-groups
-	  '(("home"
-	     ("dired" (mode . dired-mode))
-	     ("org" (name . "^.*org$"))
-	     ("web" (or (mode . web-mode) (mode . js2-mode)))
-	     ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
-	     ("Programming" (or
-			     (mode . python-mode)
-			     (mode . c++-mode)
-			     (mode . haskell-mode)
-			     (mode . emacs-lisp-mode)))
-	     ("Scheme" (name . "^.*scm$"))
-	     ("Emacs" (or
-		       (name . "^\\*scratch\\*$")
-		       (name . "^\\*Messages\\*$")))
-	     ))))
+    :hook (ibuffer-mode-hook . (ibuffer-auto-mode 1)))
+#+END_SRC
+
+* IBuffer-vc
+https://github.com/purcell/ibuffer-vc
+#+BEGIN_SRC emacs-lisp
+  (use-package ibuffer-vc
+    :ensure t)
 #+END_SRC
 
 * Smartparens
