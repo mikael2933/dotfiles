@@ -13,7 +13,6 @@
  '(display-time-mode nil)
  '(dumb-jump-selector (quote ivy))
  '(electric-pair-mode t)
- '(font-use-system-font t)
  '(helm-M-x-fuzzy-match t)
  '(helm-apropos-fuzzy-match t)
  '(helm-buffers-fuzzy-matching t)
