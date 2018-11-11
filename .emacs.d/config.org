@@ -367,11 +367,8 @@ https://github.com/bbatsov/projectile
 https://www.emacswiki.org/emacs/IbufferMode
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 #+BEGIN_SRC emacs-lisp
-  (use-package ibuffer-git
-    :ensure t
-    :commands ibuffer
-    :bind ("C-x C-b" . ibuffer)
-    :hook (ibuffer-mode-hook . (ibuffer-auto-mode 1)))
+  (global-set-key (kbd"C-x C-b") 'ibuffer)
+  (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+END_SRC
 
 * IBuffer-vc
