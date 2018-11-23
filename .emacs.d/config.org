@@ -636,6 +636,12 @@ https://github.com/joaotavora/darkroom
 
 * Helm-tramp
 https://github.com/masasam/emacs-helm-tramp
-(use-package helm-tramp
-  :ensure t
-)
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-tramp
+    :ensure t
+    :bind ("C-c t" . helm-tramp)
+    :init ((setq tramp-default-method "ssh")
+	   (setq helm-tramp-custom-connections '(/ssh:192.168.0.7|sudo:192.168.0.7:/))
+	   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash")))
+    )
+#+END_SRC
