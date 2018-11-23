@@ -634,3 +634,8 @@ https://github.com/joaotavora/darkroom
   :ensure t)
 #+END_SRC
 
+* Helm-tramp
+https://github.com/masasam/emacs-helm-tramp
+(use-package helm-tramp
+  :ensure t
+)
