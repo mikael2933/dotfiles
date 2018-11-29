@@ -649,3 +649,11 @@ https://github.com/masasam/emacs-helm-tramp
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 #+END_SRC
 
+* elpy
+https://github.com/jorgenschaefer/elpy
+#+BEGIN_SRC emacs-lisp
+(use-package elpy
+  :ensure t)
+(elpy-enable)
+#+END_SRC
+
