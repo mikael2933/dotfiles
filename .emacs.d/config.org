@@ -81,7 +81,7 @@ https://github.com/fniessen/emacs-leuven-theme
   :defer t)
 #+END_SRC
 
-** 
+** Solarized theme
 #+BEGIN_SRC emacs-lisp
 (use-package solarized-theme
   :ensure t
