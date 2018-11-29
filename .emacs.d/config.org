@@ -224,13 +224,9 @@ https://github.com/chrisdone/god-mode
 #+BEGIN_SRC emacs-lisp
 (use-package god-mode
   :ensure t
-  :commands god-mode-all
+  :commands god-local-mode
   ;; Set ½ as toggle
-  :bind ("C-½" . god-mode-all)
-  :init
-  ;; If you are using the global mode, you might want to make no buffers exempt
-  (setq god-exempt-major-modes nil)
-  (setq god-exempt-predicates nil))
+  :bind ("<escape>" . god-local-mode)
 #+END_SRC
 
 * Ace-window
