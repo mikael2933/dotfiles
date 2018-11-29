@@ -225,8 +225,7 @@ https://github.com/chrisdone/god-mode
 (use-package god-mode
   :ensure t
   :commands god-local-mode
-  ;; Set ½ as toggle
-  :bind ("<escape>" . god-local-mode)
+  :bind ("<escape>" . god-local-mode))
 #+END_SRC
 
 * Ace-window
