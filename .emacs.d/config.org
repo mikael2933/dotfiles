@@ -81,6 +81,13 @@ https://github.com/fniessen/emacs-leuven-theme
   :defer t)
 #+END_SRC
 
+** 
+#+BEGIN_SRC emacs-lisp
+(use-package solarized-theme
+  :ensure t
+  :defer t)
+#+END_SRC
+
 ** Highlight Line Mode
 #+BEGIN_SRC emacs-lisp
 (global-hl-line-mode t)
