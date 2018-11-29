@@ -543,7 +543,8 @@ https://github.com/bmag/imenu-list
 https://github.com/greghendershott/racket-mode
 #+BEGIN_SRC emacs-lisp
   (use-package racket-mode
-    :ensure t)
+    :ensure t
+    :requires paredit)
   (require 'smartparens-config)
 #+END_SRC
 
