@@ -657,3 +657,10 @@ https://github.com/jorgenschaefer/elpy
 (elpy-enable)
 #+END_SRC
 
+* nginx-mode
+https://github.com/ajc/nginx-mode
+#+BEGIN_SRC emacs-lisp
+(use-package nginx-mode
+  :ensure t
+)
+#+END_SRC
