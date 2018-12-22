@@ -99,18 +99,6 @@ Emacs should now install packages and load configuration on first launch.
 
  Haskell-ide-engine is available in the AUR, I've found building from source much more reliable.
 
-** Development Environment for Python
- I've started using the [[https://github.com/palantir/python-language-server][Python LSP]].Start by downloading Python and Pip.
-
- #+BEGIN_SRC sh
- # pacman -S python python-pip
- #+END_SRC
-
- Install python-language-server through pip.
-
- #+BEGIN_SRC sh
- # pip install python-language-server
- #+END_SRC
 ** ZSH timestamps
  Inspired by the command from [[https://stackoverflow.com/questions/40076573/adding-timestamp-to-each-line-on-zsh][a stackoverflow]]. Add this line to the bottom of .zshrc
 
