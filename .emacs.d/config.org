@@ -664,3 +664,12 @@ https://github.com/ajc/nginx-mode
   :ensure t
 )
 #+END_SRC
+
+* docker.el
+https://github.com/Silex/docker.el
+#+BEGIN_SRC emacs-lisp
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker))
+#+END_SRC
+
