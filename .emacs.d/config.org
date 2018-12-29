@@ -460,40 +460,6 @@ https://github.com/alphapapa/helm-org-rifle
   :ensure t)
 #+END_SRC
 
-* lsp-mode
-https://github.com/emacs-lsp/lsp-mode
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-mode
-  :ensure t)
-#+END_SRC
-** lsp-ui
-https://github.com/emacs-lsp/lsp-ui
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-ui
-  :ensure t
-  :hook (lsp-mode-hook . lsp-ui-mode)
-)
-#+END_SRC
-** lsp-haskell
-https://github.com/haskell/haskell-ide-engine
-https://github.com/emacs-lsp/lsp-haskell
-
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-haskell
-  :ensure t
-  :hook ((haskell-mode-hook . lsp-haskell-enable)
-         (haskell-mode-hook . flycheck-mode)))
-#+END_SRC
-
-** lsp-python
-https://github.com/emacs-lsp/lsp-python
-
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-python
-  :ensure t
-  :hook (python-mode-hook . lsp-python-enable))
-#+END_SRC
-
 * flyspell
 https://www.emacswiki.org/emacs/FlySpell
 https://manuel-uberti.github.io/emacs/2016/06/06/spellchecksetup/
@@ -671,5 +637,13 @@ https://github.com/Silex/docker.el
 (use-package docker
   :ensure t
   :bind ("C-c d" . docker))
+#+END_SRC
+
+* Intero
+https://github.com/commercialhaskell/intero
+#+BEGIN_SRC emacs-lisp
+  (use-package intero
+    :ensure t
+    :bind (haskell-mode . intero-mode))
 #+END_SRC
 

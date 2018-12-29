@@ -81,23 +81,12 @@ Emacs should now install packages and load configuration on first launch.
  $ ln -s $DOTFILES/dunst ~/.config/dunst
  #+END_SRC
 
-** Development Environment for Haskell
- This section is dedicated to describing how to setup the Haskell development environment. Start by downloading the GHC and Stack. 
+** Intero - Haskell
+I'm using Intero for Haskell development. It's in stack and be installed by
 
- #+BEGIN_SRC sh
- # pacman -S ghc stack
- #+END_SRC
-
-*** Haskell-ide-engine
- I've switched to [[https://github.com/haskell/haskell-ide-engine][Haskell-Ide-Engine]]. Install haskell-ide-engine and make sure it's in your path. 
-
- #+BEGIN_SRC sh
- $ git clone https://github.com/haskell/haskell-ide-engine --recursive
- $ cd haskell-ide-engine
- $ stack --stack-yaml=stack-X.Y.Z.yaml install #replace X.Y.Z with ghc version 
- #+END_SRC
-
- Haskell-ide-engine is available in the AUR, I've found building from source much more reliable.
+#+BEGIN_SRC sh
+stack install intero
+#+END_SRC
 
 ** ZSH timestamps
  Inspired by the command from [[https://stackoverflow.com/questions/40076573/adding-timestamp-to-each-line-on-zsh][a stackoverflow]]. Add this line to the bottom of .zshrc
