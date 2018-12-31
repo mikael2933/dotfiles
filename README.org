@@ -100,4 +100,3 @@ Remove prog folder, and replace with dotfiles
 $ rm -rf ~/.TeXmacs/progs
 $ ln -s $DOTFILES/.TeXmacs/progs ~/.TeXmacs/progs
 #+END_SRC
-

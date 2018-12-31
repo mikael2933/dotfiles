@@ -643,7 +643,6 @@ https://github.com/Silex/docker.el
 https://github.com/commercialhaskell/intero
 #+BEGIN_SRC emacs-lisp
   (use-package intero
-    :ensure t
-    :bind (haskell-mode . intero-mode))
+    :ensure t)
 #+END_SRC
 
