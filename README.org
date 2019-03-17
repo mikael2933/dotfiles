@@ -26,7 +26,26 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
  #+END_SRC
 
 ** Emacs
-*** Copy and linking .emacs.d
+*** Chemacs
+    I'm using [[https://github.com/plexus/chemacs][Chemacs]], a profile switcher for emacs configurations. I have two configurations. My old configuration in .emacs.d (uses standard emacs bindings) and fork of [[https://github.com/multimikael/doom-emacs][DOOM]].
+
+#+BEGIN_SRC sh
+cd ~
+ln -s $DOTFILES/.emacs
+ln -s $DOTFILES/.emacs-profiles.el
+ln -s $DOTFILES/.emacs-profile
+#+END_SRC
+
+*** DOOM Emacs
+My configuration is just a fork of [[https://github.com/hlissner/doom-emacs][doom-emacs]] by hlissner. It's living in a seperate repository, [[https://github.com/multimikael/doom-emacs][multimikael/doom-emacs]]. 
+
+#+BEGIN_SRC sh
+ln -s $DOTFILES/doom-emacs ~/doom-emacs
+cd ~/doom-emacs
+make install
+#+END_SRC
+
+*** Copy and linking .emacs.d - Old configuration
  .emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
 
  #+BEGIN_SRC sh
