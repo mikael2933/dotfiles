@@ -1,3 +1,0 @@
-[submodule "doom-emacs"]
-	path = doom-emacs
-	url = https://github.com/multimikael/doom-emacs.git
