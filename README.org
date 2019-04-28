@@ -27,7 +27,9 @@ This is guide is mostly for myself. Many of the places in the guide I will be us
 
 ** Emacs
 *** Chemacs
-    I'm using [[https://github.com/plexus/chemacs][Chemacs]], a profile switcher for emacs configurations. I have two configurations. My old configuration in .emacs.d (uses standard emacs bindings) and fork of [[https://github.com/multimikael/doom-emacs][DOOM]].
+I'm using [[https://github.com/plexus/chemacs][Chemacs]], a profile switcher for emacs configurations. I have two
+configurations. My old configuration in .emacs.d (uses standard emacs
+bindings) and [[https://github.com/hlissner/doom-emacs][doom-emacs]] with a private module.
 
 #+BEGIN_SRC sh
 cd ~
@@ -36,12 +38,15 @@ ln -s $DOTFILES/.emacs-profiles.el
 ln -s $DOTFILES/.emacs-profile
 #+END_SRC
 
-*** DOOM Emacs
-My configuration is just a fork of [[https://github.com/hlissner/doom-emacs][doom-emacs]] by hlissner. It's living in a seperate repository, [[https://github.com/multimikael/doom-emacs][multimikael/doom-emacs]]. 
+*** Doom-emacs
+I'm using doom-emacs with a private module containing person configurations.
+Clone doom-emacs, add private module, and install packages:
 
 #+BEGIN_SRC sh
-ln -s $DOTFILES/doom-emacs ~/doom-emacs
-cd ~/doom-emacs
+cd ~
+git clone https://github.com/hlissner/doom-emacs.git
+ln -s $DOTFILES/doom-emacs-private ~/.config/doom
+cd doom-emacs
 make install
 #+END_SRC
 
