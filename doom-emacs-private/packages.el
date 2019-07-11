@@ -1,3 +1,3 @@
-;; -*- no-byte-compile: t; -*-
-;;; ~/.config/doom/packages.el
+;;; ~/.config/doom/packages.el -*- no-byte-compile: t; -*-
+
 (package! pkgbuild-mode)
