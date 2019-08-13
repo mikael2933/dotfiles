@@ -43,11 +43,9 @@ I'm using doom-emacs with a private module containing person configurations.
 Clone doom-emacs, add private module, and install packages:
 
 #+BEGIN_SRC sh
-cd ~
 git clone https://github.com/hlissner/doom-emacs.git
 ln -s $DOTFILES/doom-emacs-private ~/.config/doom
-cd doom-emacs
-make install
+doom-emacs/bin/doom install
 #+END_SRC
 
 *** Copy and linking .emacs.d - Old configuration
