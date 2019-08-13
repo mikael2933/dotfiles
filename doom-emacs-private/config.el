@@ -2,6 +2,12 @@
 
 (load! "+bindings")
 (load! "+ui")
-; private.el - No vc elisp file
-(if (file-readable-p "+private.el")
-  (load! "+private"))
+
+;; Helm tramp
+(use-package! helm-tramp
+  :config
+  (setq helm-tramp-custom-connections '(/sudo::/)))
+
+;; private.el - No vc elisp file
+(if (file-readable-p "~/.config/doom/+private.el")
+    (load! "+private"))
