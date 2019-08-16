@@ -3,6 +3,9 @@
 (load! "+bindings")
 (load! "+ui")
 
+;; Temporary fix before Emacs 26.3
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Helm tramp
 (use-package! helm-tramp
   :config
