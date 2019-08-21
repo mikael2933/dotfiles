@@ -1,0 +1,39 @@
+{
+    "[python]": {
+        "editor.rulers": [
+            79,
+            120
+        ]
+    },
+    "[go]": {
+        "editor.rulers": [
+            80
+        ]
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2
+    },
+    "[rust]": {
+        "editor.rulers": [
+            100
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "rust-client.channel": "stable",
+    "python.formatting.provider": "yapf",
+    "workbench.colorTheme": "One Dark Pro",
+    "window.zoomLevel": 1,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "files.associations": {
+        "*.js": "javascript"
+    },
+    "go.autocompleteUnimportedPackages": true,
+    "editor.minimap.enabled": false,
+}

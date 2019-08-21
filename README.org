@@ -76,6 +76,9 @@ Emacs should now install packages and load configuration on first launch.
  sudo cp $DOTFILES/emacsclient.desktop /usr/share/applications
  #+END_SRC
 
+** VS Code
+Settings for VS Code are located in vscode/settings.json and should be placed to the [[https://vscode.readthedocs.io/en/latest/getstarted/settings/#settings-file-locations][settings file location]].
+
 ** i3 Window Manager
  I use the i3 window manager on most of my machines. i3 is a tiling window manager, and I would recommend reading about it *before* installing it. The installation is pretty simple. Copy or link the config file inside the i3 directory.
 
