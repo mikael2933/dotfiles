@@ -5,3 +5,5 @@
 
 ;; use relative line numbers
 (setq display-line-numbers-type 'relative)
+
+(setq doom-font (font-spec :family "Fira Mono"))

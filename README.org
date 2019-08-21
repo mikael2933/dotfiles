@@ -48,6 +48,9 @@ ln -s $DOTFILES/doom-emacs-private ~/.config/doom
 doom-emacs/bin/doom install
 #+END_SRC
 
+My configuration uses Fira Mono and [[https://github.com/tonsky/FiraCode/files/412440/FiraCode-Regular-Symbol.zip][Fira Code Symbol]] (for font ligatures). Fira
+Code Symbol is also available in [[https://aur.archlinux.org/packages/otf-fira-code-symbol/][AUR]].
+
 *** Copy and linking .emacs.d - Old configuration
  .emacs.d is the directory of Emacs configuration. Start by copying .emacs.d to your home directory.
 
