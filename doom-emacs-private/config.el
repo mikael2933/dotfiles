@@ -10,9 +10,10 @@
 
 (setq projectile-project-search-path '("~/Projects/"))
 
-(setq helm-M-x-fuzzy-match t
-      helm-locate-fuzzy-match t
-      helm-recentf-fuzzy-match t)
+(setq
+ helm-M-x-fuzzy-match t
+ helm-locate-fuzzy-match t
+ helm-recentf-fuzzy-match t)
 
 ;; Helm tramp
 (use-package! helm-tramp
