@@ -3,6 +3,8 @@
 (load! "+bindings")
 (load! "+ui")
 
+(global-auto-revert-mode t)
+
 ;; Temporary fix before Emacs 26.3
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
