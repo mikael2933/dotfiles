@@ -3,6 +3,8 @@
 (map! :n "C-<prior>" #'centaur-tabs-backward
       :n "C-<next>" #'centaur-tabs-forward
 
+      :n "C-s" #'swiper
+
       :leader
       :desc "Locate file" "l" #'helm-locate
 
