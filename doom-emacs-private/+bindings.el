@@ -4,6 +4,7 @@
       :n "C-<next>" #'centaur-tabs-forward
 
       :n "C-s" #'swiper
+      :n "C-S-s" #'isearch-forward
 
       :leader
       :desc "Locate file" "l" #'helm-locate
