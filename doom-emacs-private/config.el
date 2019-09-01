@@ -8,6 +8,8 @@
 ;; Temporary fix before Emacs 26.3
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+(setq projectile-project-search-path '("~/Projects/"))
+
 ;; Helm tramp
 (use-package! helm-tramp
   :config
