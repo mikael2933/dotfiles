@@ -16,6 +16,10 @@
 ;; PDF Viewer for LaTeX documents
 (setq +latex-viewers '(evince))
 
+;; Java classpath for languagetool
+(setq langtool-java-classpath
+      "/usr/share/languagetool:/usr/share/java/languagetool/*")
+
 (setq
  helm-M-x-fuzzy-match t
  helm-locate-fuzzy-match t
