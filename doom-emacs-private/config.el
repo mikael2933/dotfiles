@@ -10,6 +10,9 @@
 
 (setq projectile-project-search-path '("~/Projects/"))
 
+;; Dashboard Banner
+(setq +doom-dashboard-banner-file (expand-file-name "EmacsIcon192.png" doom-private-dir))
+
 (setq
  helm-M-x-fuzzy-match t
  helm-locate-fuzzy-match t
