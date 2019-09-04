@@ -26,8 +26,6 @@
   :config
   (setq helm-tramp-custom-connections '(/sudo::/)))
 
-(use-package! fsharp-mode)
-
 ;; private.el - No vc elisp file
 (if (file-readable-p "~/.config/doom/+private.el")
     (load! "+private"))
