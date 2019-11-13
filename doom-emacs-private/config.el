@@ -8,6 +8,9 @@
 ;; Temporary fix before Emacs 26.3
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+;; Tab size
+(setq-default tab-width 2)
+
 (setq projectile-project-search-path '("~/Projects/"))
 
 ;; Dashboard Banner

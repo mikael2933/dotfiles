@@ -3,6 +3,9 @@
 ;; re-enable menu bar
 (menu-bar-mode 1)
 
+;; Display indentation information on modeline
+(setq doom-modeline-indent-info t)
+
 ;; use relative line numbers
 (setq display-line-numbers-type 'relative)
 
